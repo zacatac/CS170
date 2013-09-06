@@ -234,7 +234,7 @@ Stirling's approximation
  & = & \ln(n)+\ln(n-1)+\cdots+\ln(2)\\
  & = & \sum_{i=2}^{n}\ln(x)\\
  & \approx & \int_{2}^{n}\ln(x)dx\\
- & = & [x\ln x-x]_{2}^{n}\\
+ & = & [x\ln x-x+1]_{2}^{n}\\
  & = & (n\ln n-n)-(2\ln2-2)\\
  & \approx & n\ln n-n\mbox{, for large n (>100)}
 \end{eqnarray*}

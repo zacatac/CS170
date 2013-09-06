@@ -350,9 +350,19 @@ g(n) & = & \log(n^{7})\\
 \begin_inset Formula 
 \begin{eqnarray*}
 f(n) & = & 5n\log5n\\
- & =
+ & = & 5n\log5+5n\log n\\
+ & = & O(n\log n)\\
+g(n) & = & O(n\log n)
 \end{eqnarray*}
 
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\therefore f(n)=\Theta(g(n))$
 \end_inset
 
 
@@ -367,6 +377,28 @@ f(n) & = & 5n\log5n\\
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{f(n)}{g(n)} & = & \frac{\frac{n^{3}}{\log n}}{n^{4}(\log n)^{3}}\\
+ & = & \frac{n^{3}}{n^{4}(\log n)^{4}}\\
+ & = & \frac{1}{n(\log n)^{4}}\mbox{ which is not bounded}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\therefore f(n)=O(g(n))$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -378,6 +410,27 @@ f(n) & = & 5n\log5n\\
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{f(n)}{g(n)} & = & \frac{n(\log n)^{5}}{n^{1.01}}\\
+ & = & \frac{(\log n)^{5}}{n^{0.01}}\mbox{ which is not bounded}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\therefore f(n)=O(g(n))$
+\end_inset
+
+ , by rule (d).
 \end_layout
 
 \begin_layout Enumerate
@@ -389,6 +442,14 @@ f(n) & = & 5n\log5n\\
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $f(n)=O(g(n))$
+\end_inset
+
+ , by rule (d)
 \end_layout
 
 \begin_layout Enumerate
@@ -400,6 +461,14 @@ f(n) & = & 5n\log5n\\
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $f(n)=\Omega(g(n))$
+\end_inset
+
+ , by rule (d)
 \end_layout
 
 \begin_layout Enumerate
@@ -411,6 +480,27 @@ f(n) & = & 5n\log5n\\
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{f(n)}{g(n)} & = & \frac{n\log n}{(\log n)^{\log n}}\\
+ & = & \frac{n}{(\log n)^{(\log n-1)}}\mbox{ which is not bounded}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\therefore f(n)=\Omega(g(n))$
+\end_inset
+
+ , by rule (d)
 \end_layout
 
 \begin_layout Enumerate
@@ -422,6 +512,14 @@ f(n) & = & 5n\log5n\\
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $f(n)=O(g(n))$
+\end_inset
+
+ , by rule (c)
 \end_layout
 
 \begin_layout Enumerate
@@ -444,6 +542,65 @@ f(n) & = & 5n\log5n\\
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+Lemma I : If 
+\begin_inset Formula $f(n)\neq O(g(n))$
+\end_inset
+
+ then 
+\begin_inset Formula $f(n)=\Omega(g(n))$
+\end_inset
+
+ , follows from the definition of big O notation.
+\begin_inset Newline newline
+\end_inset
+
+if 
+\begin_inset Formula $f(n)=O(g(n))$
+\end_inset
+
+, then
+\begin_inset Formula $\exists c$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $f(n)=c*g(n)$
+\end_inset
+
+, where c is constant.
+\begin_inset Formula 
+\begin{eqnarray*}
+f(n) & = & c*g(n)\\
+2^{n} & = & c*2^{3n}\\
+\log_{2}(2^{n}) & = & \log_{2}(c*2^{3n})\\
+n & = & \log_{2}c+3n\\
+n & = & c+3n\\
+c & = & -2n
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\forall c$
+\end_inset
+
+, 
+\begin_inset Formula $c\neq-2n$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\therefore f(n)=\Omega(g(n))$
+\end_inset
+
+, by lemma I.
 \end_layout
 
 \begin_layout Enumerate
@@ -452,6 +609,56 @@ f(n) & = & 5n\log5n\\
 
  , 
 \begin_inset Formula $g(n)=7^{n-1}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+if 
+\begin_inset Formula $f(n)=O(g(n))$
+\end_inset
+
+, then 
+\begin_inset Formula $\exists c$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $f(n)=c*g(n)$
+\end_inset
+
+, where c is constant.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+f(n) & = & c*g(n)\\
+7^{n} & = & c*7^{n-1}\\
+\log_{7}(7^{n}) & = & \log_{7}c+\log_{7}(7^{n-1})\\
+n & = & c+n-1\\
+c & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+The reverse can also be shown.
+ Explicitly, 
+\begin_inset Formula $\frac{1}{7}f(n)=g(n)$
+\end_inset
+
+, and 
+\begin_inset Formula $f(n)=7*g(n)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\therefore f(n)=\Theta(g(n))$
 \end_inset
 
 

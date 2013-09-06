@@ -91,5 +91,193 @@ Problem 4 (10 Points)
 
 \end_layout
 
+\begin_layout Enumerate
+Show that, if c is a positive real number, then 
+\begin_inset Formula $g(n)=1+c+c^{2}+\cdots+c^{n}$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\Theta(1)$
+\end_inset
+
+ if 
+\begin_inset Formula $c<1$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+If 
+\begin_inset Formula $c<1$
+\end_inset
+
+ 
+\begin_inset Formula $\exists$
+\end_inset
+
+ a representation of 
+\begin_inset Formula $c=\frac{1}{t}$
+\end_inset
+
+, where 
+\begin_inset Formula $t$
+\end_inset
+
+ is a positive integer.
+ 
+\begin_inset Formula 
+\[
+g(n)=1+\frac{1}{t}+\frac{1}{t^{2}}+\cdots+\frac{1}{t^{n}}
+\]
+
+\end_inset
+
+For the sake of clarity, 
+\begin_inset Formula $g(n)=\Theta(1)$
+\end_inset
+
+ iff 
+\begin_inset Formula $\lim_{n\rightarrow\infty}\frac{g(n)}{1}>0\mbox{ and finite}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{n\rightarrow\infty}g(n) & = & 1+\frac{1}{t}+\frac{1}{t^{2}}+\cdots+\frac{1}{t^{n}}\\
+ & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\therefore g(n)=\Theta(1)$
+\end_inset
+
+ if 
+\begin_inset Formula $c<1$
+\end_inset
+
+ 
+\begin_inset Formula $\square$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Theta(n)$
+\end_inset
+
+ if 
+\begin_inset Formula $c=1$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $g(n)=\Theta(n)$
+\end_inset
+
+ iff 
+\begin_inset Formula $\lim_{n\rightarrow\infty}\frac{g(n)}{n}>0\mbox{ and finite}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{n\rightarrow\infty}\frac{g(n)}{n} & = & \lim_{n\rightarrow\infty}\frac{1+1+1^{2}+\cdots+1^{n}}{n}\\
+ & = & \lim_{n\rightarrow\infty}\frac{n+1}{n}\\
+ & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\therefore g(n)=\Theta(n)$
+\end_inset
+
+ if 
+\begin_inset Formula $c=1$
+\end_inset
+
+ 
+\begin_inset Formula $\square$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Theta(c^{n})$
+\end_inset
+
+ if 
+\begin_inset Formula $c>1$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $g(n)=\Theta(c^{n})$
+\end_inset
+
+ iff 
+\begin_inset Formula $\lim_{n\rightarrow\infty}\frac{g(n)}{c^{n}}>0\mbox{ and finite}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{n\rightarrow\infty}\frac{g(n)}{c^{n}} & = & \lim_{n\rightarrow\infty}\frac{1+c+c^{2}+\cdots+c^{n}}{c^{n}}\\
+ & = & \lim_{n\rightarrow\infty}\frac{1}{c^{n}}+\frac{c}{c^{n}}+\frac{c^{2}}{c^{n}}+\cdots+\frac{c^{n-1}}{c^{n}}+\frac{c^{n}}{c^{n}}\\
+ & = & \lim_{n\rightarrow\infty}0+\cdots+\frac{1}{c^{2}}+\frac{1}{c}+1\\
+\\
+ & = & 1+N\mbox{, where }0<N<1
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $1+N>0\mbox{ and finite}.$
+\end_inset
+
+ 
+\begin_inset Formula $\therefore g(n)=\Theta(c^{n})$
+\end_inset
+
+ if 
+\begin_inset Formula $c>1$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\square$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_body
 \end_document

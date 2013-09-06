@@ -72,11 +72,11 @@ Login: cs170-fe
 \end_layout
 
 \begin_layout Standard
-TA:
+TA: Di
 \end_layout
 
 \begin_layout Standard
-Discussion:
+Discussion: 109
 \end_layout
 
 \begin_layout Standard
@@ -86,6 +86,107 @@ Homework 1
 \begin_layout Standard
 Problem 6 (5 Points) 
 \begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Prove or disprove: 
+\begin_inset Newline newline
+\end_inset
+
+If a has an inverse modulo b, then b has an inverse modulo a.
+ 
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $a$
+\end_inset
+
+ has an inverse modulo 
+\begin_inset Formula $b$
+\end_inset
+
+ then 
+\begin_inset Formula $\exists c$
+\end_inset
+
+,
+\begin_inset Formula $c\in\mathbb{Z^{\text{+}}}$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $ac\equiv1\mod b$
+\end_inset
+
+.
+ This can also be written as 
+\begin_inset Formula $ac=1+kb:(1)$
+\end_inset
+
+, where 
+\begin_inset Formula $k$
+\end_inset
+
+ is some positive integer.
+ Since 
+\begin_inset Formula $c$
+\end_inset
+
+ is an integer 
+\begin_inset Formula $a|(kb+1)$
+\end_inset
+
+.Converting equation(1) to 
+\begin_inset Formula $b\mod a$
+\end_inset
+
+ will then take on the form, 
+\begin_inset Formula $kb+1\equiv\mod a:(2)$
+\end_inset
+
+.
+ Then it is the case that 
+\begin_inset Formula $-k$
+\end_inset
+
+ is multiplicative inverse of 
+\begin_inset Formula $b\mod a$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\therefore$
+\end_inset
+
+if 
+\begin_inset Formula $\exists c$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $ac\equiv1\mod b$
+\end_inset
+
+ then 
+\begin_inset Formula $\exists d$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $db\equiv1\mod a$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\square$
 \end_inset
 
 

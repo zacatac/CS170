@@ -101,6 +101,58 @@ Show that,
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+Since this relation is considering asymptotic (large n) behavior I will
+ apply Stirling's approximation.
+ If the relation below can be shown then showing the initial relation is
+ trivial.
+ 
+\begin_inset Formula 
+\[
+\ln(n!)=\Theta(n\ln n)
+\]
+
+\end_inset
+
+Stirling's approximation
+\begin_inset Formula 
+\begin{eqnarray*}
+\ln(n!) & = & \ln(n*(n-1)*\cdots*2*1)\\
+ & = & \ln(n)+\ln(n-1)+\cdots+\ln(2)\\
+ & = & \sum_{i=2}^{n}\ln(x)\\
+ & \approx & \int_{2}^{n}\ln(x)dx\\
+ & = & [x\ln x-x]_{2}^{n}\\
+ & = & (n\ln n-n)-(2\ln2-2)\\
+ & \approx & n\ln n-n\mbox{, for large n (>100)}
+\end{eqnarray*}
+
+\end_inset
+
+Now to show the asymptotic relation
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{n\rightarrow\infty}\frac{\ln(n!)}{n\ln n} & \approx & \lim_{n\rightarrow\infty}\frac{n\ln n-n}{n\ln n}\mbox{, by Stirling's approx.}\\
+ & = & \lim_{n\rightarrow\infty}\frac{n\ln n}{n\ln n}+\frac{n}{n\ln n}\\
+ & = & 1\mbox{>0\ensuremath{,}and finite}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\therefore\log(n!)=\Theta(n\log n)$
+\end_inset
+
+ 
+\begin_inset Formula $\square$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \end_body

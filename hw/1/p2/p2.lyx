@@ -395,7 +395,7 @@ g(n) & = & O(n\log n)
 \end_inset
 
 
-\begin_inset Formula $\therefore f(n)=\Omega(g(n))$
+\begin_inset Formula $\therefore f(n)=O(g(n))$
 \end_inset
 
 
@@ -427,7 +427,7 @@ g(n) & = & O(n\log n)
 \end_inset
 
 
-\begin_inset Formula $\therefore f(n)=\Omega(g(n))$
+\begin_inset Formula $\therefore f(n)=O(g(n))$
 \end_inset
 
  , by rule (d).
@@ -446,7 +446,7 @@ g(n) & = & O(n\log n)
 \end_inset
 
 
-\begin_inset Formula $f(n)=\Omega(g(n))$
+\begin_inset Formula $f(n)=O(g(n))$
 \end_inset
 
  , by rule (d)
@@ -497,7 +497,7 @@ g(n) & = & O(n\log n)
 \end_inset
 
 
-\begin_inset Formula $\therefore f(n)=O(g(n))$
+\begin_inset Formula $\therefore f(n)=\Omega(g(n))$
 \end_inset
 
  , by rule (d)
@@ -516,7 +516,7 @@ g(n) & = & O(n\log n)
 \end_inset
 
 
-\begin_inset Formula $f(n)=\Omega(g(n))$
+\begin_inset Formula $f(n)=O(g(n))$
 \end_inset
 
  , by rule (c)
@@ -542,6 +542,65 @@ g(n) & = & O(n\log n)
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+Lemma I : If 
+\begin_inset Formula $f(n)\neq O(g(n))$
+\end_inset
+
+ then 
+\begin_inset Formula $f(n)=\Omega(g(n))$
+\end_inset
+
+ , follows from the definition of big O notation.
+\begin_inset Newline newline
+\end_inset
+
+if 
+\begin_inset Formula $f(n)=O(g(n))$
+\end_inset
+
+, then
+\begin_inset Formula $\exists c$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $f(n)=c*g(n)$
+\end_inset
+
+, where c is constant.
+\begin_inset Formula 
+\begin{eqnarray*}
+f(n) & = & c*g(n)\\
+2^{n} & = & c*2^{3n}\\
+\log_{2}(2^{n}) & = & \log_{2}(c*2^{3n})\\
+n & = & \log_{2}c+3n\\
+n & = & c+3n\\
+c & = & -2n
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\forall c$
+\end_inset
+
+, 
+\begin_inset Formula $c\neq-2n$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\therefore f(n)=\Omega(g(n))$
+\end_inset
+
+, by lemma I.
 \end_layout
 
 \begin_layout Enumerate
@@ -550,6 +609,56 @@ g(n) & = & O(n\log n)
 
  , 
 \begin_inset Formula $g(n)=7^{n-1}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+if 
+\begin_inset Formula $f(n)=O(g(n))$
+\end_inset
+
+, then 
+\begin_inset Formula $\exists c$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $f(n)=c*g(n)$
+\end_inset
+
+, where c is constant.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+f(n) & = & c*g(n)\\
+7^{n} & = & c*7^{n-1}\\
+\log_{7}(7^{n}) & = & \log_{7}c+\log_{7}(7^{n-1})\\
+n & = & c+n-1\\
+c & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+The reverse can also be shown.
+ Explicitly, 
+\begin_inset Formula $\frac{1}{7}f(n)=g(n)$
+\end_inset
+
+, and 
+\begin_inset Formula $f(n)=7*g(n)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\therefore f(n)=\Theta(g(n))$
 \end_inset
 
 
@@ -572,6 +681,10 @@ g(n) & = & O(n\log n)
 
  , 
 \begin_inset Formula $g(n)=n!$
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 

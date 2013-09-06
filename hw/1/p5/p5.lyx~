@@ -72,11 +72,11 @@ Login: cs170-fe
 \end_layout
 
 \begin_layout Standard
-TA: Di
+TA:
 \end_layout
 
 \begin_layout Standard
-Discussion: 109
+Discussion:
 \end_layout
 
 \begin_layout Standard
@@ -84,109 +84,72 @@ Homework 1
 \end_layout
 
 \begin_layout Standard
-Problem 6 (5 Points) 
+Problem 5 (10 Points) 
 \begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
-\begin_layout Description
-Prove or disprove: 
-\begin_inset Newline newline
-\end_inset
-
-If a has an inverse modulo b, then b has an inverse modulo a.
- 
-\end_layout
-
 \begin_layout Standard
-If 
-\begin_inset Formula $a$
+Show that,
+\begin_inset Formula 
+\[
+\log(n!)=\Theta(n\log n)
+\]
+
 \end_inset
 
- has an inverse modulo 
-\begin_inset Formula $b$
-\end_inset
 
- then 
-\begin_inset Formula $\exists c$
-\end_inset
-
-,
-\begin_inset Formula $c\in\mathbb{Z^{\text{+}}}$
-\end_inset
-
- s.t.
- 
-\begin_inset Formula $ac\equiv1\mod b$
-\end_inset
-
-.
- This can also be written as 
-\begin_inset Formula $ac=1+kb:(1)$
-\end_inset
-
-, where 
-\begin_inset Formula $k$
-\end_inset
-
- is some positive integer.
- Since 
-\begin_inset Formula $c$
-\end_inset
-
- is an integer 
-\begin_inset Formula $a|(kb+1)$
-\end_inset
-
-.Converting equation(1) to 
-\begin_inset Formula $b\mod a$
-\end_inset
-
- will then take on the form, 
-\begin_inset Formula $kb+1\equiv\mod a:(2)$
-\end_inset
-
-.
- Then it is the case that 
-\begin_inset Formula $-k$
-\end_inset
-
- is multiplicative inverse of 
-\begin_inset Formula $b\mod a$
-\end_inset
-
-.
- 
 \begin_inset Newline newline
 \end_inset
 
-
-\begin_inset Formula $\therefore$
-\end_inset
-
-if 
-\begin_inset Formula $\exists c$
-\end_inset
-
- s.t.
+Since this relation is considering asymptotic (large n) behavior I will
+ apply Stirling's approximation.
+ If the relation below can be shown then showing the initial relation is
+ trivial.
  
-\begin_inset Formula $ac\equiv1\mod b$
+\begin_inset Formula 
+\[
+\ln(n!)=\Theta(n\ln n)
+\]
+
 \end_inset
 
- ,then 
-\begin_inset Formula $\exists d$
+Stirling's approximation
+\begin_inset Formula 
+\begin{eqnarray*}
+\ln(n!) & = & \ln(n*(n-1)*\cdots*2*1)\\
+ & = & \ln(n)+\ln(n-1)+\cdots+\ln(2)\\
+ & = & \sum_{i=2}^{n}\ln(x)\\
+ & \approx & \int_{2}^{n}\ln(x)dx\\
+ & = & [x\ln x-x]_{2}^{n}\\
+ & = & (n\ln n-n)-(2\ln2-2)\\
+ & \approx & n\ln n-n\mbox{, for large n (>100)}
+\end{eqnarray*}
+
 \end_inset
 
- s.t.
- 
-\begin_inset Formula $db\equiv1\mod a$
+Now to show the asymptotic relation
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{n\rightarrow\infty}\frac{\ln(n!)}{n\ln n} & \approx & \lim_{n\rightarrow\infty}\frac{n\ln n-n}{n\ln n}\\
+ & = & \lim_{n\rightarrow\infty}\frac{n\ln n}{n\ln n}+\frac{n}{n\ln n}\\
+ & = & 1\mbox{>0\ensuremath{,}and finite}
+\end{eqnarray*}
+
 \end_inset
 
-.
+
+\begin_inset Formula $\therefore\log(n!)=\Theta(n\log n)$
+\end_inset
+
  
 \begin_inset Formula $\square$
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 
