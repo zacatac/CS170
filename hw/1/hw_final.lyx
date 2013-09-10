@@ -1017,6 +1017,10 @@ end{itemize}
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1214,6 +1218,10 @@ Show that
 \sum_{i=1}^{n}\frac{1}{i}=\Theta(logn)
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -1483,6 +1491,10 @@ end{itemize}
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1503,6 +1515,192 @@ section*{5.
 \end_layout
 
 \begin_layout Standard
+Show that for any 
+\begin_inset Formula $n>1$
+\end_inset
+
+, 
+\begin_inset Formula $\gcd(F_{n+1},F_{n})=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+GCD addition Lemma: If 
+\begin_inset Formula $\gcd(a,b)=z$
+\end_inset
+
+ , for 
+\begin_inset Formula $z,a,b\in\mathbb{Z}$
+\end_inset
+
+, then 
+\begin_inset Formula $\gcd(a+b,b)=z$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\gcd(a,b) & = & z\\
+z & = & xa+yb\\
+\gcd(a+b,b) & = & z'\\
+z' & = & x(a+b)+yb\\
+\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Then since 
+\begin_inset Formula $z'|b$
+\end_inset
+
+ and 
+\begin_inset Formula $z'|(a+b)$
+\end_inset
+
+, 
+\begin_inset Formula $z'|a$
+\end_inset
+
+ also, by 
+\begin_inset Formula $z'|(a+b)-a$
+\end_inset
+
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $z'|z$
+\end_inset
+
+.
+ By definition 
+\begin_inset Formula $z|a$
+\end_inset
+
+ and 
+\begin_inset Formula $z|b$
+\end_inset
+
+ and 
+\begin_inset Formula $z|(a+b)$
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $z|z'$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $z$
+\end_inset
+
+ and 
+\begin_inset Formula $z'$
+\end_inset
+
+ are both the greatest possible common divisor, 
+\begin_inset Formula $z|z'$
+\end_inset
+
+, and 
+\begin_inset Formula $z'|z$
+\end_inset
+
+ then 
+\begin_inset Formula $z=z'$
+\end_inset
+
+.
+\begin_inset Formula $\square$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof by Induction on n:
+\end_layout
+
+\begin_layout Standard
+Base Cases: 
+\begin_inset Formula $\gcd(F_{2},F_{1})=\gcd(1,1)=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inductive Hypothesis: For arbitrary 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $\gcd(F_{n+1},F_{n})=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Inductive Step: For 
+\begin_inset Formula $n+1$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\gcd(F_{n+2},F_{n+1}) & = & \gcd(F_{n+1}+F_{n},F_{n+1})\\
+ & = & \gcd(F_{n+1},F_{n})\mbox{\mbox{, by the GCD addition lemma}}\\
+ & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\therefore$
+\end_inset
+
+
+\begin_inset Formula $\gcd(F_{n+1},F_{n})=1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall n\geq1$
+\end_inset
+
+
+\begin_inset Formula $\square$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \begin_inset ERT
 status open
 

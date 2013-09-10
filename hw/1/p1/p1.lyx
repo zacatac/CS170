@@ -85,7 +85,7 @@ Discussion:
 \end_layout
 
 \begin_layout Standard
-Homework 1
+Homework 2
 \end_layout
 
 \begin_layout Standard
@@ -97,7 +97,26 @@ Problem 1 (10 Points)
 \end_layout
 
 \begin_layout Standard
-I understand the course policies.
+Suppose a particular coin has a probability p of coming up heads.
+ How many times must you toss it, on average, before it comes up heads?
+ 
+\end_layout
+
+\begin_layout Standard
+(Hint: Method 1: start by showing that the correct expression is 
+\begin_inset Formula $\sum_{i=1}^{\infty}i(1-p)^{i-1}p$
+\end_inset
+
+ .
+ Method 2: if 
+\begin_inset Formula $E$
+\end_inset
+
+ is the average number of coin tosses required, show that 
+\begin_inset Formula $E=1+(1−p)E$
+\end_inset
+
+.)
 \end_layout
 
 \end_body
