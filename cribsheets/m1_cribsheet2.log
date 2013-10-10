@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 OCT 2013 10:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 OCT 2013 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -298,19 +298,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 115.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 115.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 139.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 144.
 
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 139.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
 
 <unit_circle_2.png, id=1, 1003.75pt x 1003.75pt>
 File: unit_circle_2.png Graphic file (type png)
  <use unit_circle_2.png>
-Package pdftex.def Info: unit_circle_2.png used on input line 169.
+Package pdftex.def Info: unit_circle_2.png used on input line 176.
 (pdftex.def)             Requested size: 200.74644pt x 200.74644pt.
 
 [1
@@ -318,13 +318,13 @@ Package pdftex.def Info: unit_circle_2.png used on input line 169.
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./unit_
 circle_2.png>] (./m1_cribsheet2.aux) ) 
 Here is how much of TeX's memory you used:
- 2566 strings out of 493315
- 37170 string characters out of 6137904
- 210247 words of memory out of 5000000
- 5986 multiletter control sequences out of 15000+600000
- 6842 words of font info for 25 fonts, out of 8000000 for 9000
+ 2568 strings out of 493315
+ 37189 string characters out of 6137904
+ 219247 words of memory out of 5000000
+ 5987 multiletter control sequences out of 15000+600000
+ 7194 words of font info for 26 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,7n,23p,267b,305s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,23p,350b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
@@ -338,11 +338,12 @@ amsfonts/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb>
-Output written on m1_cribsheet2.pdf (1 page, 268609 bytes).
+/cmsy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti8.pfb>
+Output written on m1_cribsheet2.pdf (1 page, 280260 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
