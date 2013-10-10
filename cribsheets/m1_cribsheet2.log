@@ -1,0 +1,347 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  9 OCT 2013 21:43
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**m1_cribsheet2.tex -recorder
+(./m1_cribsheet2.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count87
+\mult@box=\box26
+\multicol@leftmargin=\dimen103
+\c@unbalance=\count88
+\c@collectmore=\count89
+\doublecol@number=\count90
+\multicoltolerance=\count91
+\multicolpretolerance=\count92
+\full@width=\dimen104
+\page@free=\dimen105
+\premulticols=\dimen106
+\postmulticols=\dimen107
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count93
+\c@finalcolumnbadness=\count94
+\last@try=\dimen108
+\multicolovershoot=\dimen109
+\multicolundershoot=\dimen110
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+\multicol@sort@counter=\count95
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count96
+\calc@Bcount=\count97
+\calc@Adimen=\dimen111
+\calc@Bdimen=\dimen112
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count98
+\calc@Cskip=\skip47
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count99
+\Gm@cntv=\count100
+\c@Gm@tempcnt=\count101
+\Gm@bindingoffset=\dimen113
+\Gm@wd@mp=\dimen114
+\Gm@odd@mp=\dimen115
+\Gm@even@mp=\dimen116
+\Gm@layoutwidth=\dimen117
+\Gm@layoutheight=\dimen118
+\Gm@layouthoffset=\dimen119
+\Gm@layoutvoffset=\dimen120
+\Gm@dimlist=\toks15
+)
+(./m1_cribsheet2.aux)
+\openout1 = `m1_cribsheet2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: landscape 
+* h-part:(L,W,R)=(36.135pt, 722.7pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 542.02501pt, 36.135pt)
+* \paperwidth=794.96999pt
+* \paperheight=614.295pt
+* \textwidth=722.7pt
+* \textheight=542.02501pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-73.135pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=144.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 100.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 100.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 100.
+\MyLen=\skip48
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 109.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 263.
+
+Overfull \vbox (66.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (65.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (64.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (63.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (62.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (61.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (60.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (59.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (58.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (57.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (56.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (55.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (54.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (53.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (52.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (51.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (50.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (49.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (48.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (47.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (46.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (45.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (44.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (43.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (41.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (40.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (39.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (38.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (36.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (35.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (34.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (33.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (32.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (31.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (30.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (29.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (28.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (27.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (26.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (25.38884pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (24.38884pt too high) has occurred while \output is active []
+
+
+[1
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./m1_cribsheet2.aux) ) 
+Here is how much of TeX's memory you used:
+ 979 strings out of 493315
+ 13474 string characters out of 6137904
+ 98863 words of memory out of 5000000
+ 4473 multiletter control sequences out of 15000+600000
+ 8286 words of font info for 30 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 23i,14n,20p,175b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on m1_cribsheet2.pdf (1 page, 168780 bytes).
+PDF statistics:
+ 76 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
