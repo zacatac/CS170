@@ -1,9 +1,20 @@
 \documentclass[10pt,landscape]{article}
 \usepackage{multicol}
 \usepackage{calc}
-\usepackage{ifthen}
+\usepackage{ifthen,graphicx}
 \usepackage[landscape]{geometry}
-
+\usepackage{sidecap}
+\usepackage{nonfloat}
+\usepackage{lipsum}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\newcommand\myfigure[1]{%
+\medskip\noindent\begin{minipage}{\columnwidth}
+\centering%
+#1%
+%figure,caption, and label go here
+\end{minipage}\medskip}
 % To make this come out properly in landscape mode, do one of the following
 % 1.
 %  pdflatex latexsheet.tex
@@ -97,170 +108,77 @@
 \end{center}
 
 \section{Order of Growth}
-UpperBound $O$ : LowerBound $\Omega$ : Constant $\Theta$
-\subsection{Tricks}
+\subsection{Formal}
 \newlength{\MyLen}
+\settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
+
+UpperBound $O$ : LowerBound $\Omega$ : Constant $\Theta$
+$\frac{a(n)}{b(n)}>0, a(n)\in \Omega(b(n))$
+$\frac{a(n)}{b(n)}<c, a(n)\in O(b(n))$
+$\frac{a(n)}{b(n)}=c, a(n)\in \Theta(b(n))$
+
+\subsection{Tricks}
 \settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
 $7^{\log(n)^2}=(2^{\log(7)})^{(\log(n))^2}=(2^{\log(n)})^{\log(7)\log(n)}\approx n^{\log(n)}$
 
 $n! = 2^{n\log(n)}$
 
+Solve the comparison by integration.
 
-\subsection{Common \texttt{documentclass} options}
-\settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
+\subsection{Prove}
 
-\subsection{Common \texttt{documentclass} options}
+Geom sum series: $g(n)=\frac{1-c^{n+1}}{1-c} = \frac{c^{n+1}-1}{c-1}$
 
-\settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
+Induction: $\gcd(F_{k+1},F_{k+1}) = \gcd(F_{k+1},F_{k+2}-F_{K+1}) = \gcd(F_{k+1},F_{k}) =1$
 
-\subsection{Common \texttt{documentclass} options}
+Numbers before prime $1/n$: in $O(n)$ time. Geom dist.$E[X]=\sum^{\infty}_{i=1}{i*P[X=i]}=\sum^{\infty}_{i=1}{i*(1-p)^{(i-1)}p}$ $p=probheads, i-1=tails throws$ 
+$= p * dp/dt (\sum^{\infty}_{i=1}{-(1-p)^i})\rightarrow_{sums}=-1/p$ Integrate: $E[X]=p*(1/p^2)=1/p$ 
 
-\settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
+Binary Search: if $N$ is a square. Why only $\log n$ for power max? $N=q^k\rightarrow \log N=k\log \rightarrow k=\log N/\log q \leq \log N$ 
 
-\subsection{Common \texttt{documentclass} options}
+For any power: poweringoperation\{$\sum^{k}_{i=1}{in*n}=O(k^2n^2)$\} Repeat $\log n $ times to get $O(n^6)$
 
-\settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
+\subsection{Modular Arithmetic}
+Quadratic residue busniess.
+Fermat's theorem $\forall 1\leq a < p: a^{p-1}\equiv1modp$ if p is prime.
 
-\subsection{Common \texttt{documentclass} options}
+Multitudes: $2013^{2014}= 3^{2012+2}=(3^{503})^4*3^2=1*3^2=4 all mod 5$
+$2012^{2013}=2^{2012+1}=(2^{503})^2*2^1=1*2=2 all mod 5$
+$5^{170^{70}} mod 5$: take $170^{70}=4s+t$ form $170^{70}=(2*85)^{(2*35)}=(4*85^2)^{35}=0mod4$ 
 
-\settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
+Worst RSA: We know N,e,d: $k=(ed-1)/(p-1)(q-1)$, limit k$\in 1,2$ by $e=3,d<(p-1)(q-1)$ Solve two eq system for p and q modulating k, use $N=pq$.
 
-\subsection{Packages}
-\settowidth{\MyLen}{\texttt{multicol} }
+Randomize recoverable RSA w/ $(M^e*k^e)^d mod N=MkmodN$ then multiply by $k^{-1}$
 
+\section{Divide and Conquer}
+Master's Theorem: $T(n)=aT({n/b})+O(n^d),a>0,b>1,d\geq 0$
 
-\subsection{Title}
-\settowidth{\MyLen}{\texttt{.author.text.} }
+$O(n^d) \rightarrow d>\log_b{a}$ ::
+$O(n^d\log n) \rightarrow d=\log_b{a}$ ::
+$O(n^{\log_b{a}}) \rightarrow d<\log_b{a}$
 
-\section{Document structure}
-\begin{multicols}{2}
-\verb!\part{!\textit{title}\verb!}!  \\
-\verb!\chapter{!\textit{title}\verb!}!  \\
-\verb!\section{!\textit{title}\verb!}!  \\
-\verb!\subsection{!\textit{title}\verb!}!  \\
-\verb!\subsubsection{!\textit{title}\verb!}!  \\
-\verb!\paragraph{!\textit{title}\verb!}!  \\
-\verb!\subparagraph{!\textit{title}\verb!}!
-\end{multicols}
-{\raggedright
-Use \verb!\setcounter{secnumdepth}{!$x$\verb!}! suppresses heading
-numbers of depth $>x$, where \verb!chapter! has depth 0.
-Use a \texttt{*}, as in \verb!\section*{!\textit{title}\verb!}!,
-to not number a particular item---these items will also not appear
-in the table of contents.
-}
+Majority Element: If there is a majority element then it will be a majority element of $A_1$ or $A_2,, O(n\log n)$. Or you could use the pairing-discard approach $T(n)=T(n/2)+O(n)=O(n)$
 
-\subsection{Text environments}
-\settowidth{\MyLen}{\texttt{.begin.quotation.}}
+Closest pair of points: ugh...
+% {%
+% \setlength{\fboxsep}{0pt}%
+% \setlength{\fboxrule}{0pt}%
+% \fbox{\includegraphics[scale=0.25]{"unit_circle"}}%
+% }%
+\begin{Figure}
+ \includegraphics[scale=0.2]{unit_circle_2}
+\end{Figure}
+%
+% \myfigure{\includegraphics[width=.5\columnwidth]{unit_circle_2}%
+% \figcaption{\emph{I am a figure caption!}}}
+%
 
+% \includegraphics[scale=0.25]{"unit_circle"}
+Complex number practice: $\omega = e^{2\pi i/8}=\sqrt{2}/2 + i\sqrt{2}/2$
 
-\subsection{References}
-\settowidth{\MyLen}{\texttt{.pageref.marker..}}
+$\omega^7 = e^{2\pi i (7/8)}=\sqrt{2}/2 - i\sqrt{2}/2=\omega^-1,\omega^7 + \omega = \sqrt{2}$
+$p(x)=x^2+1, p(\omega)=1+i,p(\omega^2)=0,p(\omega^3)=1-i$
 
-%---------------------------------------------------------------------------
-
-
-
-\section{Math mode}
-For inline math, use \verb!\(...\)! or \verb!$...$!.
-For displayed math, use \verb!\[...\]! or \verb!\begin{equation}!.
-
-\begin{tabular}{@{}l@{\hspace{1em}}l@{\hspace{2em}}l@{\hspace{1em}}l@{}}
-Superscript$^{x}$       &
-\verb!^{x}!             &  
-Subscript$_{x}$         &
-\verb!_{x}!             \\  
-$\frac{x}{y}$           &
-\verb!\frac{x}{y}!      &  
-$\sum_{k=1}^n$          &
-\verb!\sum_{k=1}^n!     \\  
-$\sqrt[n]{x}$           &
-\verb!\sqrt[n]{x}!      &  
-$\prod_{k=1}^n$         &
-\verb!\prod_{k=1}^n!    \\ 
-\end{tabular}
-
-\subsection{Math-mode symbols}
-
-% The ordering of these symbols is slightly odd.  This is because I had to put all the
-% long pieces of text in the same column (the right) for it all to fit properly.
-% Otherwise, it wouldn't be possible to fit four columns of symbols here.
-
-\begin{tabular}{@{}l@{\hspace{1ex}}l@{\hspace{1em}}l@{\hspace{1ex}}l@{\hspace{1em}}l@{\hspace{1ex}} l@{\hspace{1em}}l@{\hspace{1ex}}l@{}}
-$\leq$          &  \verb!\leq!  &
-$\geq$          &  \verb!\geq!  &
-$\neq$          &  \verb!\neq!  &
-$\approx$       &  \verb!\approx!  \\
-$\times$        &  \verb!\times!  &
-$\div$          &  \verb!\div!  &
-$\pm$           & \verb!\pm!  &
-$\cdot$         &  \verb!\cdot!  \\
-$^{\circ}$      & \verb!^{\circ}! &
-$\circ$         &  \verb!\circ!  &
-$\prime$        & \verb!\prime!  &
-$\cdots$        &  \verb!\cdots!  \\
-$\infty$        & \verb!\infty!  &
-$\neg$          & \verb!\neg!  &
-$\wedge$        & \verb!\wedge!  &
-$\vee$          & \verb!\vee!  \\
-$\supset$       & \verb!\supset!  &
-$\forall$       & \verb!\forall!  &
-$\in$           & \verb!\in!  &
-$\rightarrow$   &  \verb!\rightarrow! \\
-$\subset$       & \verb!\subset!  &
-$\exists$       & \verb!\exists!  &
-$\notin$        & \verb!\notin!  &
-$\Rightarrow$   &  \verb!\Rightarrow! \\
-$\cup$          & \verb!\cup!  &
-$\cap$          & \verb!\cap!  &
-$\mid$          & \verb!\mid!  &
-$\Leftrightarrow$   &  \verb!\Leftrightarrow! \\
-$\dot a$        & \verb!\dot a!  &
-$\hat a$        & \verb!\hat a!  &
-$\bar a$        & \verb!\bar a!  &
-$\tilde a$      & \verb!\tilde a!  \\
-
-$\alpha$        &  \verb!\alpha!  &
-$\beta$         &  \verb!\beta!  &
-$\gamma$        &  \verb!\gamma!  &
-$\delta$        &  \verb!\delta!  \\
-$\epsilon$      &  \verb!\epsilon!  &
-$\zeta$         &  \verb!\zeta!  &
-$\eta$          &  \verb!\eta!  &
-$\varepsilon$   &  \verb!\varepsilon!  \\
-$\theta$        &  \verb!\theta!  &
-$\iota$         &  \verb!\iota!  &
-$\kappa$        &  \verb!\kappa!  &
-$\vartheta$     &  \verb!\vartheta!  \\
-$\lambda$       &  \verb!\lambda!  &
-$\mu$           &  \verb!\mu!  &
-$\nu$           &  \verb!\nu!  &
-$\xi$           &  \verb!\xi!  \\
-$\pi$           &  \verb!\pi!  &
-$\rho$          &  \verb!\rho!  &
-$\sigma$        &  \verb!\sigma!  &
-$\tau$          &  \verb!\tau!  \\
-$\upsilon$      &  \verb!\upsilon!  &
-$\phi$          &  \verb!\phi!  &
-$\chi$          &  \verb!\chi!  &
-$\psi$          &  \verb!\psi!  \\
-$\omega$        &  \verb!\omega!  &
-$\Gamma$        &  \verb!\Gamma!  &
-$\Delta$        &  \verb!\Delta!  &
-$\Theta$        &  \verb!\Theta!  \\
-$\Lambda$       &  \verb!\Lambda!  &
-$\Xi$           &  \verb!\Xi!  &
-$\Pi$           &  \verb!\Pi!  &
-$\Sigma$        &  \verb!\Sigma!  \\
-$\Upsilon$      &  \verb!\Upsilon!  &
-$\Phi$          &  \verb!\Phi!  &
-$\Psi$          &  \verb!\Psi!  &
-$\Omega$        &  \verb!\Omega!  
-\end{tabular}
-\footnotesize
-
-
-\section{Sample \LaTeX\ document}
 
 
 \rule{0.3\linewidth}{0.25pt}
