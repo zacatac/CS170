@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1381444522 "m1_cribsheet2.tex" "m1_cribsheet2.pdf" "m1_cribsheet2" 1381444523
+["pdflatex"] 1381451575 "m1_cribsheet2.tex" "m1_cribsheet2.pdf" "m1_cribsheet2" 1381451577
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
@@ -33,8 +33,14 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/sidecap/sidecap.sty" 1137110811 10526 e4fd75d883a0e21600bac6a209f020eb ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/calc.sty" 1254151720 10075 18f0ccff816231e9905cd2b3a482a622 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/multicol.sty" 1312409015 26766 56c30c5bea3083b5a0d6fc2ce0063096 ""
-  "m1_cribsheet2.aux" 1381444523 540 eba0014107cab4079d88efe4efee1f88 ""
-  "m1_cribsheet2.tex" 1381444522 7474 63fb3a43bafc73e61b7913a3ca1c2d40 ""
+  "BFS.png" 1381448902 14573 b972f37af54a3cee975c7582125cffad ""
+  "FFT.png" 1381449377 12558 261ecff1e66e135f1248a0458c459ceb ""
+  "FFT_example.png" 1381451436 30252 40522f04c7e05762d1b9130d7782951c ""
+  "convolution.png" 1381450870 135152 b6868cb151dfd78dc8078682c66e57ec ""
+  "m1_cribsheet2.aux" 1381451577 540 eba0014107cab4079d88efe4efee1f88 ""
+  "m1_cribsheet2.tex" 1381451575 8007 e4dc6169680cbafa2b88c45c2bd508cf ""
+  "selection.png" 1381451080 11660 81f31285c7e193daed503dfbb14fbc2f ""
+  "tree_edges.png" 1381448579 181233 8e93b8019619e7aa8a8150174521bf20 ""
   "unit_circle_2.png" 1381425459 176613 ccd9d8af70058c27f45b2125dd2b8f82 ""
   (generated)
   "m1_cribsheet2.aux"

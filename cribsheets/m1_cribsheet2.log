@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 OCT 2013 15:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 OCT 2013 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -307,43 +307,79 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
 
-<unit_circle_2.png, id=1, 1003.75pt x 1003.75pt>
+<selection.png, id=1, 412.54124pt x 63.23625pt>
+File: selection.png Graphic file (type png)
+ <use selection.png>
+Package pdftex.def Info: selection.png used on input line 171.
+(pdftex.def)             Requested size: 206.27011pt x 31.61804pt.
+
+<unit_circle_2.png, id=2, 1003.75pt x 1003.75pt>
 File: unit_circle_2.png Graphic file (type png)
  <use unit_circle_2.png>
-Package pdftex.def Info: unit_circle_2.png used on input line 176.
+Package pdftex.def Info: unit_circle_2.png used on input line 179.
 (pdftex.def)             Requested size: 200.74644pt x 200.74644pt.
 
-[1
+<FFT_example.png, id=4, 588.1975pt x 191.71625pt>
+File: FFT_example.png Graphic file (type png)
+ <use FFT_example.png>
+Package pdftex.def Info: FFT_example.png used on input line 208.
+(pdftex.def)             Requested size: 205.87221pt x 67.10168pt.
 
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./unit_
-circle_2.png>] (./m1_cribsheet2.aux) ) 
+<FFT.png, id=5, 329.23pt x 43.16125pt>
+File: FFT.png Graphic file (type png)
+ <use FFT.png>
+Package pdftex.def Info: FFT.png used on input line 212.
+(pdftex.def)             Requested size: 230.45941pt x 30.21265pt.
+
+<tree_edges.png, id=6, 2007.5pt x 1193.45876pt>
+File: tree_edges.png Graphic file (type png)
+ <use tree_edges.png>
+Package pdftex.def Info: tree_edges.png used on input line 226.
+(pdftex.def)             Requested size: 160.60327pt x 95.47864pt.
+
+<BFS.png, id=7, 169.63374pt x 143.53625pt>
+File: BFS.png Graphic file (type png)
+ <use BFS.png>
+Package pdftex.def Info: BFS.png used on input line 230.
+(pdftex.def)             Requested size: 118.7428pt x 100.47467pt.
+
+<convolution.png, id=8, 720.6925pt x 538.01pt>
+File: convolution.png Graphic file (type png)
+ <use convolution.png>
+Package pdftex.def Info: convolution.png used on input line 234.
+(pdftex.def)             Requested size: 216.20941pt x 161.40424pt.
+ [1
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./selec
+tion.png> <./unit_circle_2.png> <./FFT_example.png> <./FFT.png> <./tree_edges.p
+ng> <./BFS.png> <./convolution.png>] (./m1_cribsheet2.aux) ) 
 Here is how much of TeX's memory you used:
- 2568 strings out of 493315
- 37189 string characters out of 6137904
- 219247 words of memory out of 5000000
- 5987 multiletter control sequences out of 15000+600000
+ 2598 strings out of 493315
+ 37658 string characters out of 6137904
+ 225247 words of memory out of 5000000
+ 6011 multiletter control sequences out of 15000+600000
  7194 words of font info for 26 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,7n,23p,350b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti8.pfb>
-Output written on m1_cribsheet2.pdf (1 page, 280260 bytes).
+ 38i,7n,23p,350b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive
+/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2
+013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2013/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti8.pfb>
+Output written on m1_cribsheet2.pdf (1 page, 538331 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 74 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

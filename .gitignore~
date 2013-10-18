@@ -11,7 +11,3 @@ Makefile.in
 /depcomp
 /install-sh
 /missing
-
-#Ignoring unneeded or private files
-.DS_Store
-.txt
