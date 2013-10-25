@@ -9,6 +9,7 @@
 \def\Homework{7}%Number of Homework, PUT SOMETHING HERE
 \def\Session{Fall 2013}
 
+
 \title{CS170  Fall 2013 Solutions to Homework 7}
 \author{\Name, section \Sec, \texttt{\Login}}
 \markboth{CS170 --\Session\  Homework \Homework\ \Name, section \Sec}

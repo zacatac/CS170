@@ -9,6 +9,7 @@
 \def\Homework{7}%Number of Homework, PUT SOMETHING HERE
 \def\Session{Fall 2013}
 
+
 \title{CS170  Fall 2013 Solutions to Homework 7}
 \author{\Name, section \Sec, \texttt{\Login}}
 \markboth{CS170 --\Session\  Homework \Homework\ \Name, section \Sec}
@@ -21,7 +22,7 @@
 \section*{1. (20 pts.) A greedy algorithm - so to speak}
 
 We can formalize this as a graph problem. Let the undirected graph
- $G = (V,E)$ denote LinkedInâ€™s relationship graph, where each vertex represents a person who has an account on LinkedIn. 
+ $G = (V,E)$ denote LinkedInœôòùs relationship graph, where each vertex represents a person who has an account on LinkedIn. 
 There is an edge $\{u, v\} \in E$ if $u$ and $v$ have listed a professional 
 relationship with each other on LinkedIn (we will assume that relationships are symmetric). 
 We are looking for a subset $S \subseteq V$ of vertices so that every vertex $s \in S$
