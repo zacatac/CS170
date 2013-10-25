@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.5.30)  23 OCT 2013 18:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  25 OCT 2013 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -178,7 +178,7 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 )
 (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
@@ -212,10 +212,18 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count102
 ))
 \Gin@req@height=\dimen120
 \Gin@req@width=\dimen121
@@ -258,24 +266,23 @@ ode.tex
 \pgf@yc=\dimen129
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count102
-\c@pgf@countb=\count103
-\c@pgf@countc=\count104
-\c@pgf@countd=\count105
+\c@pgf@counta=\count103
+\c@pgf@countb=\count104
+\c@pgf@countc=\count105
+\c@pgf@countd=\count106
 
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
-Package pgfsys Info: Driver file for pgf: pgfsys-dvips.def on input line 900.
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvips.de
-f
-File: pgfsys-dvips.def 2008/04/03  (rcs-revision 1.20)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
 
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
-ostscript.def
-File: pgfsys-common-postscript.def 2008/10/01  (rcs-revision 1.22)
-\pgf@objectcount=\count106
+df.def
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
 )))
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
@@ -292,8 +299,9 @@ Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package xcolor Info: Driver file: dvips.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -562,9 +570,9 @@ File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    ... okay on input line 18.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: dvips
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: dvips
+* driver: pdftex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -595,6 +603,63 @@ LaTeX Font Info:    ... okay on input line 18.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count131
+\scratchdimen=\dimen165
+\scratchbox=\box39
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count134
+\MPscratchDim=\dimen166
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks34
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 ABD: EveryShipout initializing macros
 LaTeX Font Info:    Try loading font information for U+msa on input line 19.
 
@@ -612,15 +677,57 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [1
 
-] [2] [3]
-[4] [5] [6] [7] [8] [9] [10] [11] [12] (./ps7.aux) ) 
-Here is how much of TeX's memory you used:
- 11505 strings out of 493316
- 208817 string characters out of 6137930
- 254438 words of memory out of 5000000
- 14726 multiletter control sequences out of 15000+600000
- 15462 words of font info for 46 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 56i,6n,55p,436b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+ [4] [5]
+[6] [7] [8] [9] [10]
 
-Output written on ps7.dvi (12 pages, 10480 bytes).
+! LaTeX Error: \begin{itemize} on input line 43 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.300 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./ps7.aux) )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 43 (\begingroup)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 12434 strings out of 493315
+ 223402 string characters out of 6137904
+ 267497 words of memory out of 5000000
+ 15613 multiletter control sequences out of 15000+600000
+ 15803 words of font info for 47 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 56i,6n,55p,436b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm
+-super-t1.enc}{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-s
+uper-ts1.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx109
+5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1440.
+pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pf
+b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on ps7.pdf (10 pages, 202150 bytes).
+PDF statistics:
+ 96 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -21,7 +21,8 @@
 \section*{1. (20 pts.) A greedy algorithm - so to speak}
 
 We can formalize this as a graph problem. Let the undirected graph
- $G = (V,E)$ denote LinkedIn’s relationship graph, where each vertex represents a person who has an account on LinkedIn. 
+ $G = (V,E)$ denote LinkedIn's relationship graph, where each vertex represents a person x
+who has an account on LinkedIn. 
 There is an edge $\{u, v\} \in E$ if $u$ and $v$ have listed a professional 
 relationship with each other on LinkedIn (we will assume that relationships are symmetric). 
 We are looking for a subset $S \subseteq V$ of vertices so that every vertex $s \in S$
@@ -30,15 +31,26 @@ And we want to make the set $S$ as large as possible, subject to these constrain
 Design an efficient algorithm to find the set of super-schmoozers (the largest set $S$
  that is consistent with these constraints), given the graph $G$.
 
-\begin{itemize}  
-\item[{\bf 1.}] Color each vertex arbitrarily 
-\item[{\bf 2.}] Let $B := \{v \in V : v \mbox{ is bad}\}$
-\item[{\bf 3.}] While $B \not= \emptyset:$
-\item[{\bf 4.}]     Pick any bad vertex $v \in B$
-\item[{\bf 5.}]     Reverse the color of $v$.
-\item[{\bf 6.}]     Update $B$ to reflect this chang,
-so that it again holds the set of bad vertices.
-\end{itemize}
+We can begin by identifying any vertices that have degree $< 20$.  Let the set of these
+vertices be called $\bar{S}$.
+Since the definition of an edge $s\in S$ depends on its neighbors recursively, 
+there has to be a way tracking the number degree of the edges that fall into $S$ and then
+that information must be returned to all other nodes in the path. 
+
+This can be accomplished with a DFS with ties being broken on back edges. Simply mark each 
+edge with pre- and post-visit numberings. As you run the search you will run into three cases:
+
+\begin{itemize}
+\item You will arrive at a vertex $v$ that is a sink in the sense that it is connected to 
+$< 20$ vertices $\in \S$. By definition, $v \in \bar{S}$.
+
+\item You wil arrive at a vertex $v$ that is connected to $\geq 20$ vertices $\in S$. 
+In this case you can not be sure whether or not $v\in S$ because it is not yet known
+whether the vertices connnected to it are $\in S$.
+
+\item Arrival at a vertex $v$ reveals a back edge whose vertex $l$. If the relationship
+$post(v) - pre(l) \geq 20$ holds, then the vertex $v$ is in a cycle of length $\geq 20$ 
+containing vertices   
 
 \label{pg:end-of-p1}
 % Make sure that the solution here does not exceed one page here. If
@@ -62,6 +74,39 @@ has more than 25 neighbors of its own color.
 Consider the following algorithm, where we call a vertex `bad` if it
 has more than 25 neighbors of its own color:
 
+\begin{itemize}  
+\item[{\bf 1.}] Color each vertex arbitrarily 
+\item[{\bf 2.}] Let $B := \{v \in V : v \mbox{ is bad}\}$
+\item[{\bf 3.}] While $B \not= \emptyset:$
+\item[{\bf 4.}] \hspace{4 pt}    Pick any bad vertex $v \in B$
+\item[{\bf 5.}] \hspace{4 pt}    Reverse the color of $v$.
+\item[{\bf 6.}] \hspace{4 pt}    Update $B$ to reflect this chang,
+so that it again holds the set of bad vertices.
+\end{itemize}
+
+Notice that if the algorithm terminates then, it is 
+guranteed to find a coloring with the desired property.
+
+\begin{itemize}
+\item[{\bf (a)}] Prove that this algorithm terminates in a finite number of steps. 
+I suggest that you define a \emph{potential function} that associates a non-negative
+integer (the potential) to each possible way of coloring the graph, in such a way that
+each interation of the while-loop is guranteed to strictly reduce the potential.
+
+Following the hint, allow $p(G):G\mapsto\mathbb{N}_0$ to denote the potential of a graph $G$.
+ Let this potential be explicitly defined as the $|B|$, which by definition always takes on a 
+value $b\in \mathbb{N}_0$. Each time that the loop runs, a vertex $v\in B$ is changed from 
+one color to the other. Since $v \in B$ there were $\geq 25$ vertices of the same color adjacent
+$v$.  
+
+\item[{\bf (b)}] Prove that the algorithm terminates after at most $|E|$ iterations
+of the loop. 
+
+Hint: You should figure out the largest value the potential could take on.
+\end{itemize}
+
+% Optional: Think about how to implement the algorithm so that its total running time 
+% is $O(|V|+|E|)$ 
 
 \label{pg:end-of-p2}
 % Make sure that the solution here does not exceed one page here. If
@@ -72,7 +117,31 @@ has more than 25 neighbors of its own color:
 
 \newpage
 
-\section*{3. (10+5 pts.) Shortest path in currency trading}
+\section*{3. (20 pts.) Job Scheduling}
+
+You are given a set of $n$ jobs, each runs in unit time.
+ Job $i$ has an integer-valued deadline time $d_i \geq  0$ and a real-valued penalty $p_i \geq 0$.
+ Jobs may be scheduled to start at any non-negative integer time $(0, 1, 2, etc)$, and
+ only one job may run at a time. If job $i$ completes at or before time $d_i$, then it 
+incurs no penalty; otherwise, it is late and incurs penalty $p_i$. The goal is to 
+schedule all jobs so as to minimize the total penalty incurred.
+For each of the following greedy algorithms, either prove that it is correct, or give
+ a simple counterexample (with at most three jobs) to show that it fails.
+
+\begin{itemize}
+ 
+\item[{\bf (a)}] Among the unscheduled jobs that can be scheduled on time, consider the
+one whose deadline is the earliest (breaking ties with the highest penalty), and schedule 
+it at the earliest available time. Repeat.
+ 
+\item[{\bf (b)}] Among unscheduled jobs that can be scheduled on time, consider the one
+ whose penalty is the highest (breaking ties with the earliest deadline), and schedule
+ it at the earliest available time. Repeat.
+
+\item[{\bf (c)}] Among unscheduled jobs that can be scheduled on time, consider the one
+ whose penalty is the highest (breaking ties arbitrarily), and schedule it at the latest
+ available time before its deadline. Repeat.
+\end{itemize}
 
 \label{pg:end-of-p3}
 
@@ -84,7 +153,21 @@ has more than 25 neighbors of its own color:
 
 \newpage
 
-\section*{4. (5+5+5+5 pts.) Cycle property, another MST algorithm}
+\section*{4. (20 pts.) Timesheets}
+
+Suppose we have $N$ jobs labelled $1,...,N$. For each job, you have determined the
+bonus of completing the job, $V_i \geq 0$, a penalty per day that you accumulate
+for not doing the job, $P_i \geq 0$, and the days required for you to successfully 
+complete the job $R_i > 0$.
+
+Every day, we choose one unfinished job to work on. A job i has been finished if we
+ have spent $R_i$ days working on it. This doesn’t necessarily mean you have to spend
+ $R_i$ contiguous sequence of days working on job $i$. We start on day 1, and we want
+ to complete all our jobs and finish with maximum reward. If we finish job $i$ at the
+ end of day $t$, we will get reward $V_i − t *P_i$. Note, this value can be negative 
+if you choose to delay a job for too long.
+
+Given this information, what is the optimal job scheduling policy to complete all of the jobs?
 
 \label{pg:end-of-p4}
 
@@ -97,7 +180,27 @@ has more than 25 neighbors of its own color:
 
 \newpage
 
-\section*{5. (5+5+5+5 pts.) Update MST after changing one edge}
+\section*{5. (20  pts.) Weighted Set Cover}
+
+In class we looked at a greedy algorithm to solve the \emph{set cover} problem,
+and proved that if the optimal set cover has size \emph{k}, then our greedy 
+algorithm will find a set cover of size at most $k\log_e{n}$.
+
+Here is a generalization of the set cover problem. 
+
+\begin{itemize}
+\item \emph{Input:} A set of elements $B$ of size $n$; sets $S_1,\ldots,S_m \subseteq B$;
+positive weights $w_i,\ldots,w_m$.
+
+\item \emph{Output:} A selection of the sets $S_i$ who union is $B$.
+
+\item \emph{Cost:} The sum of the weights $w_i$ for the sets that were picked.
+
+\end{itemize}
+
+Design an algorithm to find the set cover with approximately the smallest cost.
+Prove that if there is a solution with cost $k$, then your algorithm will find a solution 
+with cost $O(k\log n)$.
 
 \label{pg:end-of-p5}
 
@@ -111,20 +214,20 @@ has more than 25 neighbors of its own color:
 
 \newpage
 
-
- \section*{Problem 6}
-
-\label{pg:end-of-p6}
-
-% Make sure that the solution here does not exceed one page here. If
-% it does, use the extra space for this problem at the end.  
-%
-% Comment out the next line if you are NOT using the extra space
-\paragraph{} \emph{Continued on Page \pageref{pg:p6-continuation}}
-
-\newpage
-
-
+% 
+%  \section*{Problem 6}
+% 
+% \label{pg:end-of-p6}
+% 
+% % Make sure that the solution here does not exceed one page here. If
+% % it does, use the extra space for this problem at the end.  
+% %
+% % Comment out the next line if you are NOT using the extra space
+% \paragraph{} \emph{Continued on Page \pageref{pg:p6-continuation}}
+% 
+% \newpage
+% 
+% 
 % Comment out the "extra spaces" completely for the problems for you
 % don't need them
 
@@ -181,19 +284,19 @@ adsfasdf
 %%Comment out the above three lines if you are not using extra space
 %%for this problem.
 
-
-\section*{Extra space for Problem 6}
-\emph{Continued from Page \pageref{pg:end-of-p6}}
-
-
-%Insert solution here
-
-
-\label{pg:p6-continuation}
-\newpage
-%%Comment out the above three lines if you are not using extra space
-%%for this problem.
-
+% 
+% \section*{Extra space for Problem 6}
+% \emph{Continued from Page \pageref{pg:end-of-p6}}
+% 
+% 
+% %Insert solution here
+% 
+% 
+% \label{pg:p6-continuation}
+% \newpage
+% %%Comment out the above three lines if you are not using extra space
+% %%for this problem.
+% 
 
 
 \end{document}
