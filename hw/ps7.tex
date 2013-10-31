@@ -42,7 +42,7 @@ edge with pre- and post-visit numberings. As you run the search you will run int
 
 \begin{itemize}
 \item You will arrive at a vertex $v$ that is a sink in the sense that it is connected to 
-$< 20$ vertices $\in \S$. By definition, $v \in \bar{S}$.
+$< 20$ vertices $\in S$. By definition, $v \in \bar{S}$.
 
 \item You wil arrive at a vertex $v$ that is connected to $\geq 20$ vertices $\in S$. 
 In this case you can not be sure whether or not $v\in S$ because it is not yet known
@@ -51,13 +51,15 @@ whether the vertices connnected to it are $\in S$.
 \item Arrival at a vertex $v$ reveals a back edge whose vertex $l$. If the relationship
 $post(v) - pre(l) \geq 20$ holds, then the vertex $v$ is in a cycle of length $\geq 20$ 
 containing vertices   
+\end{itemize}
 
+To be continued : sorry!
 \label{pg:end-of-p1}
 % Make sure that the solution here does not exceed one page here. If
 % it does, use the extra space for this problem at the end.  
 %
 % Comment out the next line if you are NOT using the extra space
-\paragraph{} \emph{Continued on Page \pageref{pg:p1-continuation}}
+% \paragraph{} \emph{Continued on Page \pageref{pg:p1-continuation}}
 
 \newpage
 
@@ -94,15 +96,32 @@ integer (the potential) to each possible way of coloring the graph, in such a wa
 each interation of the while-loop is guranteed to strictly reduce the potential.
 
 Following the hint, allow $p(G):G\mapsto\mathbb{N}_0$ to denote the potential of a graph $G$.
- Let this potential be explicitly defined as the $|B|$, which by definition always takes on a 
-value $b\in \mathbb{N}_0$. Each time that the loop runs, a vertex $v\in B$ is changed from 
-one color to the other. Since $v \in B$ there were $\geq 25$ vertices of the same color adjacent
-$v$.  
+ Let this potential be explicitly defined as the number of edges in $E$ that have the same color
+vertex on either end (same-color edges), which by definition always takes on a value $\in \mathbb{N}_0$. 
+Each time that the loop runs, a vertex $v\in B$ is changed from 
+one color to the other.  $\forall v \in B$ there are $> 25$ vertices adjacent to $v$ and of the same color,
+and there are at most $25$ vertices adjacent to $v$ of the opposite color. 
+This shows that even with the maximal number of non-similar and minimal similar adjacent 
+vertices there is still a decrease in the number of same-color edges  by at least one (namely, one 
+of the edges with $v$ as an end)
+when you switch the color of $v$. Thus, each iteration of the loop leads to a decrease of
+the value of $p(G)$ by \emph{at least} one.
 
 \item[{\bf (b)}] Prove that the algorithm terminates after at most $|E|$ iterations
-of the loop. 
+of the loop. Hint: You should figure out the largest value the potential could take on.
 
-Hint: You should figure out the largest value the potential could take on.
+If $\forall v \in V: v\in B$ then  the potential function $p(G)$ described above
+takes on its maximum value, $p(G)= |E|$.  It was shown in (a) that for each iteration of the loop
+for a chosen $v \in B$ the decrease in $p(G)$ is at least one. Therefore, even in this worst case 
+scenario, the algorithm will terminate after $|E|$ iterations.
+
+% For this graph, began at any edge $v$ maintain its color, and
+% label this edge as being at level $0$.Travel along each of the edges of $v$ and mark 
+% all of the vertices with the opposite color of $v$ and label each of these edges as being at 
+% level $1$. Continue this process until you either reach a sink or the edges all point back to
+% a vertex that has already been repainted. Continue to paint all the even levels one color and 
+% all of the odd levels the other color. There is no case where there 
+
 \end{itemize}
 
 % Optional: Think about how to implement the algorithm so that its total running time 
@@ -113,7 +132,7 @@ Hint: You should figure out the largest value the potential could take on.
 % it does, use the extra space for this problem at the end.  
 %
 % Comment out the next line if you are NOT using the extra space
-\paragraph{} \emph{Continued on Page \pageref{pg:p2-continuation}}
+% \paragraph{} \emph{Continued on Page \pageref{pg:p2-continuation}}
 
 \newpage
 
@@ -133,14 +152,40 @@ For each of the following greedy algorithms, either prove that it is correct, or
 \item[{\bf (a)}] Among the unscheduled jobs that can be scheduled on time, consider the
 one whose deadline is the earliest (breaking ties with the highest penalty), and schedule 
 it at the earliest available time. Repeat.
- 
+
+counterexample: 
+\begin{equation*}
+  \begin{align}
+    j_a&=\{d_a&=1,p_a&=5\}\\
+    j_b&=\{d_b&=2,p_b&=15\}\\
+    j_c&=\{d_c&=2,p_c&=10\}\\
+  \end{align}
+\end{equation*}
+
+The minimized total penalty for this set is: $p=5$, where $j_b$ and $j_c$ are compelted. 
+
+However, the algorithm at time $t=0$ will schedule job $j_a$ because it has the earliest
+deadline, and then it will schedule $j_b$ at time $t=1$ breaking ties with the highest
+penalty. This leaves the total incurred penalty as being $p_{total}=10$.
+
 \item[{\bf (b)}] Among unscheduled jobs that can be scheduled on time, consider the one
  whose penalty is the highest (breaking ties with the earliest deadline), and schedule
  it at the earliest available time. Repeat.
 
-\item[{\bf (c)}] Among unscheduled jobs that can be scheduled on time, consider the one
- whose penalty is the highest (breaking ties arbitrarily), and schedule it at the latest
- available time before its deadline. Repeat.
+counterexample: 
+\begin{equation*}
+  \begin{align}
+    j_a&=\{d_a&=1,p_a&=5\}\\
+    j_b&=\{d_b&=2,p_b&=10\}\\
+    j_c&=\{d_c&=3,p_c&=15\}\\
+  \end{align}
+\end{equation*}
+
+The minimal penalty incurred for this example is: $p=0$, with all jobs being completed.
+
+For this algorithm, the scheduling is based on penalty so the order of scheduling will be
+$j_c$ start@ $t=0$, $j_b$ start@ $t=1$, which will incur a penalty of $p=5$.
+
 \end{itemize}
 
 \label{pg:end-of-p3}
@@ -149,7 +194,7 @@ it at the earliest available time. Repeat.
 % it does, use the extra space for this problem at the end.  
 %
 % Comment out the next line if you are NOT using the extra space
-% \paragraph{} \emph{Continued on Page \pageref{pg:p3-continuation}}
+ \paragraph{} \emph{Continued on Page \pageref{pg:p3-continuation}}
 
 \newpage
 
@@ -161,21 +206,31 @@ for not doing the job, $P_i \geq 0$, and the days required for you to successful
 complete the job $R_i > 0$.
 
 Every day, we choose one unfinished job to work on. A job i has been finished if we
- have spent $R_i$ days working on it. This doesn’t necessarily mean you have to spend
+ have spent $R_i$ days working on it. This doesn't necessarily mean you have to spend
  $R_i$ contiguous sequence of days working on job $i$. We start on day 1, and we want
  to complete all our jobs and finish with maximum reward. If we finish job $i$ at the
- end of day $t$, we will get reward $V_i − t *P_i$. Note, this value can be negative 
+ end of day $t$, we will get reward $V_i - (tP_i)$. Note, this value can be negative 
 if you choose to delay a job for too long.
 
 Given this information, what is the optimal job scheduling policy to complete all of the jobs?
 
+The objective function for N jobs that we are trying to maximize is:
+\begin{equation*}
+  \begin{align}
+    reward(N)=\sum_{i=1}^{N}{V_i-(tP_i)}
+  \end{align}
+\end{equation*}
+
+The optimal algorithm involves solving a linear system that maximizes this reward function.
+An approach that is inspired by problem 3(c) would be to take each job that has the lowest value to penalty ratio
+and schedule it for as late as possible with respect to maximizing the value of $V-(tP)$.
 \label{pg:end-of-p4}
 
 % Make sure that the solution here does not exceed one page here. If
 % it does, use the extra space for this problem at the end.  
 %
 % Comment out the next line if you are NOT using the extra space
-\paragraph{} \emph{Continued on Page \pageref{pg:p4-continuation}}
+%\paragraph{} \emph{Continued on Page \pageref{pg:p4-continuation}}
 
 
 \newpage
@@ -229,61 +284,82 @@ with cost $O(k\log n)$.
 % 
 % 
 % Comment out the "extra spaces" completely for the problems for you
-% don't need them
-
-\section*{Extra space for Problem 1}
-\emph{Continued from Page \pageref{pg:end-of-p1}}
-adsfasdf
-\label{pg:p1-continuation}
-
-
-
-\newpage
-%%Comment out the above three lines if you are not using extra space
-%%for this problem.
-
-
-\section*{Extra space for Problem 2}
-\emph{Continued from Page \pageref{pg:end-of-p2}}
-
-%Insert solution here
-
-\label{pg:p2-continuation}
-\newpage
-%%Comment out the above three lines if you are not using extra space
-%%for this problem.
-
-\section*{Extra space for Problem 3}
+% don't neethem
+% 
+% \section*{Extra space for Problem1}
+% \emph{Continued from Page \pageref{pg:end-ofp1}}
+% \label{pgcontinuation}
+% 
+% 
+% 
+% newpage
+% %%Comment out the above three lines if you are not using extraspace
+% %%for this problem.
+% 
+% 
+% \section*{Extra space for Problem 2}
+% \emph{Continued from Page \pageref{pg:end-of-p2}}
+% 
+% %Insert solution here
+% 
+% \label{pg:p2-continuation}
+% \newpage
+% %%Comment out the above three lines if you are not using extra space
+% %%for this problem.
+% 
+% \section*{Extra space for Problem 3}
 \emph{Continued from Page \pageref{pg:end-of-p3}}
 
 %Insert solution here
 
+\begin{itemize}
+\item[{\bf (c)}] Among unscheduled jobs that can be scheduled on time, consider the one
+ whose penalty is the highest (breaking ties arbitrarily), and schedule it at the latest
+ available time before its deadline. Repeat.
+
+For the highest penalty jobset $J'$ with deadline $t=i$, the time slots that the jobs will 
+be scheduled in are $t=i-1$ to $t=i-|J'|$ (arbitrarily). The only case that is of any concern 
+is when there is another set of jobs $J$ with deadlines within the timespan $t=\{i-1,i-|J'|\}$ and
+maximized penalty s.t. penalty($J$) < penalty($J'$).
+In this case, if there there was a more optimal solution that involved a job $j\in J$ then this 
+job would belong to $J'$ and would have already been scheduled.
+
+% Proof: By induction, there is a base case of a set of highest penalty jobs $J$ due at time $t=i$.
+% Of these jobs, they will arbitrarily be scheduled at times $t=i-1$ to time $t=i-|J|$.
+% The base case will then always make the optimal choice. 
+% 
+% The strong inductive hypothesis is that for some job set $J'$, all of the jobsets with penalty 
+% greater than penalty($J'$) the optimal scheduling was chosen. The inductive step is to show that 
+% the maximal jobset with penalty $< J'$ will provide an optimal solution. 
+\end{itemize}
 \label{pg:p3-continuation}
+
 \newpage
+
 %%Comment out the above three lines if you are not using extra space
 %%for this problem.
 
 
+% 
+% \section*{Extra space for Problem 4}
+% \emph{Continued from Page \pageref{pg:end-of-p4}}
+% 
+% 
+% \label{pg:p4-continuation}
+% \newpage
+% %%Comment out the above three lines if you are not using extra space
+% %%for this problem.
+% 
 
-\section*{Extra space for Problem 4}
-\emph{Continued from Page \pageref{pg:end-of-p4}}
-
-
-\label{pg:p4-continuation}
-\newpage
-%%Comment out the above three lines if you are not using extra space
-%%for this problem.
-
-
-
-\section*{Extra space for Problem 5}
-\emph{Continued from Page \pageref{pg:end-of-p5}}
-
-\label{pg:p5-continuation}
-\newpage
-%%Comment out the above three lines if you are not using extra space
-%%for this problem.
-
+% 
+% \section*{Extra space for Problem 5}
+% \emph{Continued from Page \pageref{pg:end-of-p5}}
+% 
+% \label{pg:p5-continuation}
+% \newpage
+% %%Comment out the above three lines if you are not using extra space
+% %%for this problem.
+% 
 % 
 % \section*{Extra space for Problem 6}
 % \emph{Continued from Page \pageref{pg:end-of-p6}}
