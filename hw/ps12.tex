@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,tikz}
+\usepackage{algorithm,algorithmic}
+\usepackage[T1]{fontenc}
+
+\def\Name{Zackery Field}  % Your name
+\def\Sec{Di, 103}  % Your GSI's name and discussion section
+\def\Login{cs170-fe} % Your login
+\def\Homework{12}%Number of Homework
+\def\Session{Fall 2013}
+
+\title{CS170  Fall 2013 Solutions to Homework 12}
+\author{\Name, section \Sec, \texttt{\Login}}
+\markboth{CS170 --\Session\  Homework \Homework\ \Name, section \Sec}
+{CS170--\Session\ Homework \Homework\ \Name, section \Sec, \texttt{\Login}}
+\pagestyle{myheadings}
+
+\begin{document}
+\maketitle
+
+\section{[10 pts.] Making DAGs is hard}
+
+Consider the search problem Max-Acyclic-Induced-Subgraph: 
+
+INPUT: A \emph{directed} graph $G=(V,E)$, and a positive integer $k$.
+
+OUTPUT: A subset $S\subseteq V$ of size $k$ such that the graph $G_S$ obtained
+from $G$ by keeping exactly those edges whose endpoints are in $S$ is a 
+DAG.
+
+Show that Max-Acyclic-Induced-Subgraph is NP-complete.
+
+\begin{itemize}
+
+\item Show that the Max-Acyclic-Induced-Subgraph (MAIS) problem is in NP.
+
+\item Reduce to Independent Set / Vertex Cover / Clique
+
+\end{itemize}
+
+\label{pg:end-of-p1}
+% Make sure that the solution here does not exceed one page here. If
+% it does, use the extra space for this problem at the end.  
+%
+% Comment out the next line if you are NOT using the extra space
+\paragraph{} \emph{Continued on Page \pageref{pg:p1-continuation}}
+
+\newpage
+
+%%Do NOT remove/comment the next line
+\pagestyle{plain}
+%%It makes sure your name appears only on the first page
+
+\section{[10 pts.] Reductions redux}
+
+Show that you can not hope to do much better than insertion 
+or deletion worst case complexity $Omega(\log n)$, where $n$ is the 
+number of elements in queue. Prove that in the "comparison model"
+, there cannot exist a priority queue implementation in which
+both Insert and Delete-Min operations have worst case complexity $O(1)$. 
+Hint: Do an appropriate reduction from sorting in the comparison mode. 
+ 
+\label{pg:end-of-p2}
+% Make sure that the solution here does not exceed one page here. If
+% it does, use the extra space for this problem at the end.  
+%
+% Comment out the next line if you are NOT using the extra space
+\paragraph{} \emph{Continued on Page \pageref{pg:p2-continuation}}
+
+\newpage
+
+\section{[10 pts.] Finding Zero(s)} 
+
+Consider the problem Integer-Zeros. 
+
+INPUT: A multivariate polynomial $P(x_1,x_2,x_3,\ldots,x_n)$ with integer
+coefficients, specified as a sum of monomials. 
+
+OUTPUT: Integers $a_1,a_2,\ldots,a_n$ such that $P(a_1,a_2,a_3,\ldots,a_n)=0$.
+
+Show that 3-SAT reduces in polynomial time to Integer-Zeros. (INTEGER ZEROS
+IS NOT IN NP)   
+  
+\label{pg:end-of-p3}
+
+% Make sure that the solution here does not exceed one page here. If
+% it does, use the extra space for this problem at the end.  
+% 
+% Comment out the next line if you are NOT using the extra space
+\paragraph{} \emph{Continued on Page \pageref{pg:p3-continuation}}
+
+\newpage
+
+\section{[10 pts] Approximately independent}
+
+Consider the following algorithm for finding an independent set in an 
+undirected graph $G=(V,E)$.
+
+
+
+\label{pg:end-of-p4}
+
+%\paragraph{} \emph{Continued on Page \pageref{pg:p4-continuation}}
+
+\newpage
+  
+\section*{Extra space for Problem 1}
+\emph{Continued from Page \pageref{pg:end-of-p1}}
+
+
+\label{pg:p1-continuation}
+ 
+ 
+\newpage
+%Comment out the above three lines if you are not using extraspace
+%for this problem.
+ 
+ 
+\section*{Extra space for Problem 2}
+\emph{Continued from Page \pageref{pg:end-of-p2}}
+
+ 
+\label{pg:p2-continuation}
+\newpage
+
+%Comment out the above three lines if you are not using extra space
+%for this problem.
+ 
+\section*{Extra space for Problem 3}
+\emph{Continued from Page \pageref{pg:end-of-p3}}
+ 
+\label{pg:p3-continuation}
+
+\newpage
+
+\section*{Extra space for Problem 4}
+\emph{Continued from Page \pageref{pg:end-of-p4}}
+
+
+\end{document}
