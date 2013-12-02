@@ -94,7 +94,7 @@ the payments to actors. The goal is to maximize this profit.
         v_j &\leq a_i, \forall a_i\in L_j\{a_1,\ldots,a_i,\ldots,a_n\}\\
         s_i,p_j &\geq 0\\
         a_i&\in\{0,1\}\\
-        v_j&\in\{0,1\}
+        v_j&\in\{0,1\}\\
       \end{aligned}
     \end{equation*}
 
@@ -110,7 +110,13 @@ the payments to actors. The goal is to maximize this profit.
       \end{aligned}
     \end{equation*}
 
-    Take the case where a solution has been found where some  $v_j$ is
+    I will apply the same LP as in (a) and simply relax the conditions on 
+    $a_i$, and $v_j$.
+    It can be shown by cases that there must be an integral optimal solution. The
+    strategy is to assume a non-integral solution has been found and to then
+    show how making that solution integral will not decrease the objective function.
+
+    
 
 \end{itemize}
 \label{pg:end-of-p2}
@@ -118,7 +124,7 @@ the payments to actors. The goal is to maximize this profit.
 % it does, use the extra space for this problem at the end.  
 %
 % Comment out the next line if you are NOT using the extra space
-% \paragraph{} \emph{Continued on Page \pageref{pg:p2-continuation}}
+\paragraph{} \emph{Continued on Page \pageref{pg:p2-continuation}}
 
 \newpage
 
@@ -128,8 +134,8 @@ Consider the following simple network with edge capacities shown
 
 {
 \centering
-\begin{tikzpicture}[->,shorten >=1pt,auto,node distance=3cm,
-                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+\begin{tikzpicture}[->,shorten >=1pt,auto,node distance=2cm,
+                    thick,main node/.style={circle,draw,font=\sffamily}]
 
   \node[main node] (1) {A};
   \node[main node] (2) [below left of=1] {S};
@@ -178,43 +184,15 @@ Consider the following simple network with edge capacities shown
  their distances $0$. The distance definition in this case is actually a
  representation of the fat-ness of the path to that node. 
 
- Instead of updating each node with minimum distance to that node, as with the
- usual Dijkstra implementation, update each vertex with the maximum minimum capacity to that 
- vertex. In practice, all nodes in the graph will start at zero and then increase
- based on the maximum capacity to them. This will continue until all paths to $t$
- have been updated. The vertex $t$ will contain the information about the 
- maximum capacity up to $t$. Note, the maximum capacity path to $t$ must contain
- edges whose maximum capacities are at least the final maximum capacity. 
- To reconstruct the path $s - t$ with maximum 
- capacity, simply traceback the path from $t$ to $s$ based on the largest 
- capacity at each step (breaking ties arbitrarily). This maximum capacity
- path from $s - t$ is the fattest path, by definition. 
-
-\item[{\bf (c)}] Show that the maximum flow in $G$ is the sum of the individual
-  flows along at most $E$ paths from $s - t$.
-  
-  
-  
-
-\item[{\bf (d)}] Now show that if we always increase flow along the 
-  fattest path in the residual graph, then the Ford-Fulkerson algorithm will 
-  terminate in at most $O(|E|\log F)$ iterations, where $F$ is the size of the 
-  maximum flow. (Hint: It might help to recall the proof for the greedy set 
-  cover algorithm in Section 5.4)
 
 \end{itemize}
-
-In fact, an even simpler rule - finding a path in the residual graph using 
-breadth-first search - guarantees that at most $O(|V||E|)$ iterations will 
-be needed.
-
 \label{pg:end-of-p3}
 
 % Make sure that the solution here does not exceed one page here. If
 % it does, use the extra space for this problem at the end.  
 %
 % Comment out the next line if you are NOT using the extra space
-% \paragraph{} \emph{Continued on Page \pageref{pg:p3-continuation}}
+\paragraph{} \emph{Continued on Page \pageref{pg:p3-continuation}}
 
 \newpage
 
@@ -298,11 +276,11 @@ bipartite graph that represents the DAG appropriately. Let $U$ and $V$
 be the two sets of vertices of the bipartite graph that are initially empty, but will contain
 all of the vertices of the given DAG. Start a BFS at the root of the DAG, 
 and let the root vertex be called $v_0$. Add $v_0$ to $U$. Let a vertex $i$
-connected to $v_0$ by an edge be called $v_{1_i}$. Add each of these vertices 
+connected to $v_0$ by an edge be called $v_{1_i}$. Add each of these $v_1$ vertices 
 to $V$. Continue the BFS search and at each iteration (level in the DAG)
 add all even level vertices $v_{even}$ to $U$ and all odd level vertices $v_{odd}$ to $V$.
 This construction of $U$ and $V$ does not gurantee a bipartite graph, however. 
-In order to ensure a bipartite graph, the BFS search must additionally 
+In order to ensure a bipartite graph, the BFS search must
 only account for vertices connected by tree edges. All cross and forward 
 edges should also be removed in the bipartite representation. 
 This will ensure that no 
@@ -310,8 +288,23 @@ vertex in $V$ (or $U$) is connected by an edge to another vertex in $V$ (or $U$)
 
 After the bipartite graph is constructed we can create arbitrary sink and source 
 nodes, $s$ and $t$. Create edges from $s$ to all vertices in $U$, and create 
-edges from all vertices in $V$ to $t$. This generates   
+edges from all vertices in $V$ to $t$. 
+To ensure that there are no sinks, reverse (track the reversals) the direction of all edges
+that connect $V$ to $U$.
+We can apply a maximum flow to this $s - t$ graph, 
+and if we are careful about the application of the flow, it will return the
+maximum matching of the graph. It will be shown that this maximum matching defines the 
+minimum number of paths necessary to cover the graph. 
 
+Start by assigning a capacity of $2$ to all of the edges 
+in the $s -t$ graph. All paths take on the form $s-u-v-t$ for some $u\in U$, and $v\in V$.
+If one of these paths is selected to be included in the maximum flow, 
+then the maximum flow increases by exactly $2$. The choice of $2$ comes from the 
+fact that each vertex will have at most two edges in the path cover.  Since two units of flow 
+can pass through a vertex in $U$ and vertex in $V$, the maximum flow represents the
+number of matches between vertices in $U$ and $V$. Note, only one unit of flow can 
+pass through any given edge. This maximum matching represents the minimum number of 
+paths necessary to cover the DAG.
 
 \label{pg:end-of-p5}
 
@@ -374,27 +367,107 @@ $$w=\emph{max}\{2y_1-3y_3,-y_1-2y_2+y_3\}$$
   \end{aligned}
 \end{equation*}
 
-\emph{Solve the LP. Show that the solutions to both are the same and then plug
-in the determined X and Y to show the value of the problem}
+%\emph{Solve the LP. Show that the solutions to both are the same and then plug
+%in the determined X and Y to show the value of the problem}
 
-% \newpage
+The optimal solution to the upper LP is  $(1/3,2/3)$ with $z=-4/3$. The optimal
+solution to the dual LP on the bottom is $w=-4/3$, proving that the solution
+$-4/3$ is optimal.
+
+ \newpage
  %%Comment out the above three lines if you are not using extraspace
  %%for this problem.
  
  
- %\section*{Extra space for Problem 2}
- %\emph{Continued from Page \pageref{pg:end-of-p2}}
- %  
- %\label{pg:p2-continuation}
-% %\newpage
+\section*{Extra space for Problem 2}
+\emph{Continued from Page \pageref{pg:end-of-p2}}
+ 
+ 
+\label{pg:p2-continuation}
+
+Take the case where a solution has been found where some  $v_j$ is non-integral,
+and all $a_i$'s are integral (at least all $a_i$ in $L_j$). 
+By the first constraint $v_j$ can be increased as long as it is below each 
+of the individual $a_i$ in its $L_j$ set. So $v_j$ can be increased to the 
+integral value of $v_j=1$, since all $a_i$ are known to be $1$. By the defined
+objective function, this increase in $v_j$ without an increase in any $a_i$ will
+result in an increased solution value.
+
+Now take the case where both some $a_i$ is non-integral in 
+the given solution. In this case, there is some portion of actors salary being
+paid, specifically $a_i*s_i$. And yet, this portion of an actor does 
+not satisfy the help to satisfy the $L_j$ list constraint for any invenstor. This
+means that for the portion of the actor's salary being paid, there is not
+return on investment from any invenstor, $v_j$, whose list,  $L_j$,  contains $a_i$.
+Therefore, a more optimal solution can be found by either removing portion of 
+actor that is being paid $a_i\rightarrow 0$, or by fully hiring the actor in order
+to satisfy some investor's list, $a_i \rightarrow 1$. 
+
+If there is some provided solution that includes some non-integral $a_i$ and 
+some non-integral $v_j$, the arguments listed above can still be applied. This
+covers all possible non-integral cases and shows that if there is any variable
+that has a non-integral value, then a more optimal solution can be found by
+changing these variables to integral values.
+
+\newpage
 % %%Comment out the above three lines if you are not using extra space
 % %%fo: r this problem.
-% 
-% \: section*{Extra space for Problem 3}
-% \: emph{Continued from Page \pageref{pg:end-of-p3}}
-% 
-% \label{pg:p3-continuation}
-%
+ 
+\section*{Extra space for Problem 3}
+\emph{Continued from Page \pageref{pg:end-of-p3}}
+ 
+ \label{pg:p3-continuation}
+\begin{itemize}
+ \item[{\bf (b) cont.}]
+ Instead of updating each node with minimum distance to that node, as with the
+ usual Dijkstra implementation, update each vertex with the maximum minimum capacity to that 
+ vertex. In practice, all nodes in the graph will start at zero and then increase
+ based on the maximum capacity to them. This will continue until all paths to $t$
+ have been updated. The vertex $t$ will contain the information about the 
+ maximum capacity up to $t$. Note, the maximum capacity path to $t$ must contain
+ edges whose capacities are at least the maximum capacity labeled at $t$. 
+ To reconstruct the path $s - t$ with maximum 
+ capacity, simply traceback the path from $t$ to $s$ based on the largest 
+ capacity at each step (breaking ties arbitrarily). This maximum capacity
+ path from $s - t$ is the fattest path, by definition. 
+
+
+\item[{\bf (c)}] Show that the maximum flow in $G$ is the sum of the individual
+  flows along at most $|E|$ paths from $s$ to $t$.
+  
+  By the max-flow min-cut theorem the maximum flow through $G$ is defined as
+  the minimum capacity cut of $G$. There are at most $|E|$ paths total from 
+  $s$ to $t$ in $G$. We can prove this by constructing a graph that has minimal
+  edges for each path. In order to add a unique edge to the directed $s - t$
+  flow, we will need to add a new vertex. This new vertex will require two edges
+  to connect it to the previous vertex in the flow and then to the next vertex in the
+  flow. This added vertex will only contribute one extra path for the 
+  two edges that it added. Since this is the minimal edge addition technique,
+  this shows that the number of possible paths whose
+  flows have to be summed to find the maximum flow is at most $|E|$.
+
+\item[{\bf (d)}] Now show that if we always increase flow along the 
+  fattest path in the residual graph, then the Ford-Fulkerson algorithm will 
+  terminate in at most $O(|E|\log F)$ iterations, where $F$ is the size of the 
+  maximum flow.
+  
+  The claim in the book regarding set cover
+  states that $k\ln n$ sets will be used in the greedy scheme where $k$ sets
+  would have been optimal and there are $n$ elements. 
+  In this case, there are $|E|$ paths that are necessary to determine the max-flow 
+  (shown in (c)), or $|E|$ elements that are necessary to be covered. With each
+  iteration of the algorithm the fattest path is chosen. And the optimal 
+  coverage ($k$) is analogous to the max-flow$=F$
+
+  Using the bound described in the book for the repeated application of the 
+  fattest path greedy choice we get 
+  $$ e_{t+1} = e_t - \frac{e_t}{F} \Rightarrow e_t \leq |E|e^{-t/F} $$
+  where $e_t$ is the number of paths left to be covered at time $t$.
+  
+  This shows that at time $t=|E|\log F$ there are at most one paths left to be covered.
+  
+\end{itemize}
+
 \newpage
 %Comment out the above three lines if you are not using extra space
 %for this problem.
