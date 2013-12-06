@@ -279,19 +279,26 @@ in case $v \in S$). We then use algorithm 2.
 \begin{itemize}
   \item[(a)] Let $(A,V-A)$ be the partition produced by the first approach.
     Show that the expected number of edges crossing the cut is at least $C/2$.
-
-
-  \item[(b)] Show that there are at most $|E|+1$ iterations of the loop at
-    line 4 in algorithm 2.
-
-
-  \item[(c)] Show that if $A$ is the set output by algorithm 2, then the number 
-    of edges crossing $(A,V-A)$ is at least $C/2$.
-\end{itemize}
+    
+    Following Ash Ketchum's proposed piazza solution, assign each edge $e\in E$
+    a $\{0,1\}$ indicator random variable. If the edge is included in the cut then
+    its value is $1$, and if it is not then its value is $0$. The probability that
+    any particular edge is chosen to be in the cut is exactly $1/2$ (fair coin 
+    flip), because the probability that any one vertex is chosen is $1/2$, and an
+    edge is defined as being in the cut if a vertex incident to it is chosen. 
+    By the linearity expectation, all $|E|$ of the indicator R.V.'s will sum to
+    $|E|/2$. 
+    
+    It is also true that because the size of the max-cut is bounded by the number of 
+    edges in the graph, $C\leq |E|$. Doing some manipulation, if $C\leq |E|$,
+    then $C/2\leq |E|/2$ Therefore the expected number of edges 
+    in the cut, $|E|/2$, is at least $C/2$. 
+    
+  \end{itemize}
 
 \label{pg:end-of-p5}
 
-%\paragraph{} \emph{Continued on Page \pageref{pg:p5-continuation}}
+\paragraph{} \emph{Continued on Page \pageref{pg:p5-continuation}}
 
 \newpage
   
@@ -380,5 +387,24 @@ in case $v \in S$). We then use algorithm 2.
 \section*{Extra space for Problem 5}
 \emph{Continued from Page \pageref{pg:end-of-p5}}
 
+\label{pg:p5-continuation}
+
+\begin{itemize}
+\item[(b)] Show that there are at most $|E|+1$ iterations of the loop at
+    line 4 in algorithm 2.
+    
+    We begin with $A\equiv \emptyset$. On each iteration of the loop we satisfy 
+    one of either the if, or the else if, clauses. For each of the clauses we
+    either put a vertex in $A$, or remove it from $A$. 
+    On the last iteration, we will have satisfied neither condition and 
+    the loop will end, this is where the $+1$ comes from. Hence, the entire 
+    loop should run at most $|E|+1$ iterations. 
+    
+  \item[(c)] Show that if $A$ is the set output by algorithm 2, then the number 
+    of edges crossing $(A,V-A)$ is at least $C/2$.
+    
+    
+    
+\end{itemize}
 
 \end{document}
