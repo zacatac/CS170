@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage{amsmath,textcomp,amssymb,geometry,graphicx,tikz}
-\usepackage{algorithm,algorithmic}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage[T1]{fontenc}
 
 \def\Name{Zackery Field}  % Your name
@@ -34,8 +35,34 @@ Show that Max-Acyclic-Induced-Subgraph is NP-complete.
 
 \item Show that the Max-Acyclic-Induced-Subgraph (MAIS) problem is in NP.
 
-\item Reduce to Independent Set / Vertex Cover / Clique
+  Given an output subset $S \subseteq V$ we can run a DFS on $G_S$ and determine if
+  there are any cycles. If there are no cycles, then a DAG of proper size ($k$),
+  was constructed. If there is a cycle then $G_S$ is not a DAG. The graph $G_S$ 
+  can be constructed from $G$ in polynomial time by iterating through the vertices in
+  $S$ and including only edges whose endpoints $u$ and $v$ are both in $S$. The
+  cycle check on $G_S$ can be done by DFS, which runs in linear time. Therefore,
+  a solution to a MAIS problem can be checked in polynomial time, which implies that
+  MAIS is in NP.
+  
+\item Reduction:  {\bf Independent Set  $\rightarrow$ MAIS},
+  to show NP-completeness.
+  
+  Let $T=(G,k)$ be some instance of an independent set problem, where
+  $G=(V,E)$ is the undirected input graph, and $k$ is the size of the desired independent subset 
+  of vertices $V$. If there is no independent subset of size $k$, then the algorithm
+  should output that none exists. If a subset does exist, then it should output that
+  subset. 
+  We first define a function $f(T)$ 
+  that takes as input an undirected graph $G$ and desired set-size $k$,
+  and turns $G$ into a directed graph $G'$. This directed graph, and its associated
+  $k$ value, form the inputs of a MAIS problem. 
 
+  Construction of $G=(V,E)\rightarrow G'=(V,E')$: 
+
+  For each of the undirected edges $e = \{u-v\}, \forall e\in E$, replace that edge
+  with two directed edges $\{u \rightarrow v\}$, and $\{v \rightarrow u\}$.  
+   
+  
 \end{itemize}
 
 \label{pg:end-of-p1}
@@ -96,11 +123,78 @@ IS NOT IN NP)
 Consider the following algorithm for finding an independent set in an 
 undirected graph $G=(V,E)$.
 
-
+\begin{algorithm}
+  \caption{Finding a large independent set}
+  \begin{algorithmic}[1]
+    \State{{\bf Input} A graph $G=(V,E)$}
+    \State{{\bf Output} A subset $I\subseteq V$}
+    \While{$V \neq \emptyset$}
+    \State {Let $v$ be the vertex with the \emph{smallest} degree in $G'=(V,E)$}
+    \State{$I \leftarrow I\cup\{v\}$}
+    \State{Let $S$ be the set of neighbors of $v$ in $G'$}
+    \State{$V \leftarrow V - (S \cup \{v\})$}
+    \State{$E \leftarrow E - \{e|e \mbox{ is incident on a vertex in }S$}
+    \EndWhile
+  \end{algorithmic}
+\end{algorithm}
 
 \label{pg:end-of-p4}
 
 %\paragraph{} \emph{Continued on Page \pageref{pg:p4-continuation}}
+
+
+
+\newpage
+
+\section{[10 pts.] Coin Tosses vs Local Search}
+
+We are given a graph $G = (V,E)$ and our goal is to produce a partition
+$(A,V-A)$ of $V$ such that the number of edges crossing the cut $(A,V-A)$
+is as large as possible. Let $C$ be the \emph{maximum} size of such a cut. We
+consider two approaches for solving this problem:
+
+{\bf Devil-May-Care} For each vertex $v \in V$, we toss a fair coin. If the coin
+comes up heads, we put $v$ in $A$, else we don't put it in $A$. 
+
+{\bf Prudence-Is-Us} Given a subset $S\subseteq V$ and a vertex $v \in V$, let
+$N(v,S)$ denote the number of neighbors of $v$ in $S$ (not including $v$, 
+in case $v \in S$). We then use algorithm 2.
+
+\begin{algorithm}
+  \caption{Finding the large cuts}
+  \begin{algorithmic}
+    \State{{\bf Input} A \emph{graph} $G=(V,E)$}
+    \State{{\bf Output} A \emph{subset} $A \subseteq V$}
+    \State{$A \leftarrow \emptyset$; flag $\leftarrow$ {\bf true}}
+    \Repeat
+    \State{flag $\leftarrow$ {\bf false}}
+    \If {$\exists v \in V - A$ \emph{such that} $N(v,A) < N(v,V-A)$}
+      \State{$A \leftarrow A\cup \{v\}$}
+      \State{flag $\leftarrow$ {\bf true}}
+    \ElsIf{$\exists v\in A$ \emph{such that} $N(v,A) > N(v,V-A)$}
+      \State{$A \leftarrow A - v$}
+      \State{flag $\leftarrow$ {\bf true}}
+    \EndIf
+    \Until{ flag $\neq$ {\bf true};}
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{itemize}
+  \item[(a)] Let $(A,V-A)$ be the partition produced by the first approach.
+    Show that the expected number of edges crossing the cut is at least $C/2$.
+
+
+  \item[(b)] Show that there are at most $|E|+1$ iterations of the loop at
+    line 4 in algorithm 2.
+
+
+  \item[(c)] Show that if $A$ is the set output by algorithm 2, then the number 
+    of edges crossing $(A,V-A)$ is at least $C/2$.
+\end{itemize}
+
+\label{pg:end-of-p5}
+
+%\paragraph{} \emph{Continued on Page \pageref{pg:p5-continuation}}
 
 \newpage
   
@@ -109,12 +203,41 @@ undirected graph $G=(V,E)$.
 
 
 \label{pg:p1-continuation}
- 
- 
+
+%\GRAPHIMAGE
+  The MAIS problem $(G',k)$ will output either a subset of vertices $S$ that constitute
+  a DAG, or it will output that no subset of size $k$ exists. This solution subset
+  requires no post-processing function $h(S)$. Any output of the MAIS problem 
+  ,with the pre-processing function $f(T)$, will output an independent set. 
+  
+  Proof: 
+
+  Note that one cannot choose two adjacent vertices, $\{u,v\}$,
+  to be placed in the DAG subset $S$ of any MAIS problem. 
+  This is because the particular
+  construction chosen for the directed graph input forms a cycle between any two
+  adjacent vertices. 
+
+  Remember that a DAG is defined as having no cycles, so for this problem
+  their has to be some equivalence between the cycles in graph $G'$ and 
+  the non-independence of the vertices in these cycles. In other words, 
+  a subset of vertices of $G'$ (and their component edges) is acyclic if and only if the subset
+  is also an independent set on $G$. 
+  
+  The trivial portion of this equivalence is; Any independent set is acyclic. 
+  In the graph $G'$, if no two vertices are pairwise adjacent in the subset (independent),
+  then there is no cycle that can be created, because none of the vertices are connected. 
+  (As the problem states, an edge is only considered if \emph{both} of its endpoints are in the subset)
+  
+  The reverse is also true; Any acyclic subset of vertices of $G'$ is independent on $G$.
+  Let $R$ be some acyclic subset of vertices. Assume for the sake of contradiction that $R$ is not independent. 
+  Then there exists two vertices $u$, and $v$ that are adjacent. But by construction, these two 
+  vertices create a cycle because both  $\{u \rightarrow v\}$, and $\{v \rightarrow u\}$ exist, a contradiction.
+  Therefore, any acyclic subset of $G'$ is also an independent set on $G$. This shows
+  that the output to the MAIS problem on $\{G',k\}$ will output an independent subset of size $k$,
+  if and only if one exists.
+   
 \newpage
-%Comment out the above three lines if you are not using extraspace
-%for this problem.
- 
  
 \section*{Extra space for Problem 2}
 \emph{Continued from Page \pageref{pg:end-of-p2}}
@@ -122,9 +245,6 @@ undirected graph $G=(V,E)$.
  
 \label{pg:p2-continuation}
 \newpage
-
-%Comment out the above three lines if you are not using extra space
-%for this problem.
  
 \section*{Extra space for Problem 3}
 \emph{Continued from Page \pageref{pg:end-of-p3}}
@@ -135,6 +255,11 @@ undirected graph $G=(V,E)$.
 
 \section*{Extra space for Problem 4}
 \emph{Continued from Page \pageref{pg:end-of-p4}}
+
+\newpage
+
+\section*{Extra space for Problem 5}
+\emph{Continued from Page \pageref{pg:end-of-p5}}
 
 
 \end{document}
