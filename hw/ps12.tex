@@ -108,7 +108,7 @@ delete-min updates in the Comparison-Model.
 % it does, use the extra space for this problem at the end.  
 %
 % Comment out the next line if you are NOT using the extra space
-\paragraph{} \emph{Continued on Page \pageref{pg:p2-continuation}}
+%\paragraph{} \emph{Continued on Page \pageref{pg:p2-continuation}}
 
 \newpage
 
@@ -123,13 +123,13 @@ OUTPUT: Integers $a_1,a_2,\ldots,a_n$ such that $P(a_1,a_2,a_3,\ldots,a_n)=0$.
 
 Show that 3-SAT reduces in polynomial time to Integer-Zeros. 
 
-\bigskip
   
-Following the hint on piazza, I will define the Many-Integer-Zeros problem 
-to be: Given a set of polynomials $\mathbb{P} = \{P_1,P_2,\ldots,P_n\}$, where
-$P_i(a_1,a_2,\ldots,a_n)$. 
-Find a set of integers $\{a_1,a_2,\ldots,a_n\}$ such that $P_1=P_2=\cdots=P_n=0$.
-
+%Following the hint on piazza, I will define the Many-Integer-Zeros problem 
+%to be: Given a set of polynomials $\mathbb{P} = \{P_1,P_2,\ldots,P_n\}$, where each
+%
+%$P_i(a_1,a_2,\ldots,a_n)$. 
+%Find a set of integers $\{a_1,a_2,\ldots,a_n\}$ such that $P_1=P_2=\cdots=P_n=0$.
+%
 Assuming that CNF is provided, we are given a 3-SAT problem statement $S$
 of the form: 
 
@@ -138,22 +138,49 @@ $S = \{(x_1 \vee x_2 \vee \bar{x_3})
 \wedge \cdots
 \wedge (x_n \vee x_2 \vee x_{i+1})\}$
 
-Let $f_{MIZ}(S)$ be the function that formulates a Many-Integer-Zeros problem 
-from a 3-SAT problem. Given a 3-clause $(x_a \vee x_b \vee x_c)$, 
+Let $f_{IZ}(S)$ be the function that formulates an Integer-Zeros problem 
+from a 3-SAT problem. Given a 3-clause $(x_1 \vee x_2 \vee x_3)$, 
 this function will construct
-a polynomial $P_i(x_ax_bx_c)$. 
-Since all of the relations within a 3-clause are OR, 
+a polynomial $P_i(x_1x_2x_3)=x_1x_2x_3$.  
+Since all of the relations within a 3-clause are OR and none of the clauses are
+negated, 
 we can simply multiply the 3-clause into one monomial. This way, whenever one of the
 $x_i$ clauses is zero, the entire polynomial will be zero, which is equivalent to
-the or relation where 0$\equiv$TRUE. The AND relations
+the or relation where $0\equiv$TRUE. If there are one or more single clause ($\bar{x}$) 
+in the 3-clause that is/are negated, then this can be represented by inserting $(1-x)$ into the monomial.
+Here is one such example:  $(x_1 \vee \bar{x_2} \vee \bar{x_3})$, $P_i(x_1x_2x_3)=x_1(1-x_2)(1-x_3)$.
+The only way to make a $1-x$ negation clause true (zero) is to set $x=1$, thus 
+$1\equiv$FALSE.
+The AND relations
 between each of the 3-clauses is represented by the summation of all of the individual
-3-clause polynomials; $P_1+P_2+\cdots+P_n = 0$. This is summation is equivalent to 
-the boolean AND relation because if any single polynomial is nonzero, then the 
+3-clause monomials; $(x_1x_2x_3)+\cdots+(x_1(1-x_2)(1-x_3)) = 0$. This summation is equivalent to 
+the boolean AND relation, because if any single monomial is nonzero, then the 
 entire sum will be nonzero.
 
-We can then define a function $f_{IZ}(MIZ)$ that accepts a Many-Integer-Zeros problem
-and reformulates it into an Integer-Zeros problem. To transfer the sum of individual polynomials
-to a single polynomial one can simply 
+%Possible example, time permitting
+
+Now that we have defined a polynomial time algorithm for constructing an Integer-Zeros problem, 
+we must determine if this problem is equivalent. Each monomial is constructed s.t. any one
+zero value for some $x_i$, or some unit value for some $(1-x_i)$ will be sufficient to make the entire term zero.
+This is consistent with the 3-clauses, because in CNF the relation between each of the clauses in a 3-clause 
+is OR. The AND between each 3-clause is represented by the summation of the individual monomials, as stated
+above. This summation construction is sufficient to ensure that all monomials are satisfied in order for the
+entire polynomial to be satisfied.
+
+The Integer-Zeros problem will either output a set of inputs 
+$\{a_1,a_2,\cdots,a_n\}$ which map to $P(a_1,a_2,\cdots,a_n)=0$ for some $P(x_1,x_2,\cdots,x_n)$,
+or it will output that no such inputs exist. This set of inputs, by construction of $P$, 
+will either be zero, or one, corresponding to TRUE and FALSE, respectively. 
+A function $h(O)$ that maps this returned set of inputs back to a solution to the
+original 3-SAT will simply look at the values of the individual clauses $x_i$, then assign
+values based on the relation:
+$x_i=$TRUE if $a_i=0$, and $x_i=$FALSE if $a_i=1$. 
+
+Note: Since the polynomial $P$ is meant to be represented as the sum of polynomials
+in order to ensure that each unit clause $x_i$ is given a value in the set of output inputs 
+(rather than just the compounded 3-clauses) insert for each $x_i$ one monomial:
+$x_i(1-x_i)$. This will also ensure that each value in the output set of inputs is either
+zero or one. 
 
 \label{pg:end-of-p3}
 
@@ -161,7 +188,7 @@ to a single polynomial one can simply
 % it does, use the extra space for this problem at the end.  
 % 
 % Comment out the next line if you are NOT using the extra space
-\paragraph{} \emph{Continued on Page \pageref{pg:p3-continuation}}
+%\paragraph{} \emph{Continued on Page \pageref{pg:p3-continuation}}
 
 \newpage
 
@@ -185,10 +212,33 @@ undirected graph $G=(V,E)$.
   \end{algorithmic}
 \end{algorithm}
 
+\begin{itemize}
+
+\item[(a)] Show that the output of algorithm $1$ is an independent set. 
+
+  Let $G=(V,E)$ be some problem instance of the algorithm, and let $I\subseteq V$
+  be the solution that is output.
+  
+  Assume, for the sake of contradiction, that $I$ is not an independent set. 
+  By the definition of independence, for some two vertices $\{u,v\}\in I$, $u$ and 
+  $v$ share an edge; $u$ and $v$ are neighbors. 
+  
+  For some iteration of the algorithm $v$ (or $u$, arbitrary choice) is the vertex of
+  smallest degree in $G'$ (line $4$). $v$ is then added to $I$ in line $5$.
+  When the set $S$ of neighbors of $v$ is constructed
+  in line $6$, $u\in S$, by definition. Then, (line $7$) all edges $\in S$ and $v$ are removed
+  from the list of iterable vertices $V$. This step ensures that $u$ will never be
+  chosen at a later iteration. In the last line (line $8$) all edges incident on a
+  vertex in $S$, including the edge $u - v$, are removed from the set of edges $E$. This 
+  is a contradiction, since the assumption at the start was that $u$ and $v$ are neighbors, 
+  but the edge $u - v$ that defines them as such is removed, during line $8$. Therefore,
+  $I$ is an independent set. 
+
+\end{itemize}
+
 \label{pg:end-of-p4}
 
-%\paragraph{} \emph{Continued on Page \pageref{pg:p4-continuation}}
-
+\paragraph{} \emph{Continued on Page \pageref{pg:p4-continuation}}
 
 
 \newpage
@@ -285,23 +335,45 @@ in case $v \in S$). We then use algorithm 2.
   if and only if one exists.
    
 \newpage
+% 
+%\section*{Extra space for Problem 2%}
+%\emph{Continued from Page \pageref{pg:end-of-p2}%}
+%%
+%% 
+%\label{pg:p2-continuation}
+%\newpage
  
-\section*{Extra space for Problem 2}
-\emph{Continued from Page \pageref{pg:end-of-p2}}
-
- 
-\label{pg:p2-continuation}
-\newpage
- 
-\section*{Extra space for Problem 3}
-\emph{Continued from Page \pageref{pg:end-of-p3}}
- 
-\label{pg:p3-continuation}
-
-\newpage
+%\section*{Extra space for Problem 3}
+%\emph{Continued from Page \pageref{pg:end-of-p3}}
+% 
+%\label{pg:p3-continuation}
+%
+%\newpage
 
 \section*{Extra space for Problem 4}
 \emph{Continued from Page \pageref{pg:end-of-p4}}
+
+\label{pg:p4-continuation}
+
+\begin{itemize}
+
+\item[(b)]  Show that if the maximum degree of a vertex in $G$ is $\Delta$, and the
+  size of the maximum independent set is $\alpha$, then we have
+  $|I|\leq \frac{\alpha}{\Delta+1}$.
+
+  Start by rearranging the inequality to get: $\Delta+1 \leq \frac{\alpha}{|I|}$
+  For a lower bound on $\Delta$, if we take a single vertex graph that has no self loops, 
+  then $\Delta =0$. This shows that $\alpha = |I|$ is possible, if and only if $\Delta =0$.
+  An upper bound on $\Delta$ would be some completey connected graph, where if $n$
+  is the number of vertices then $\Delta = n-1$. In this case, we can intuit that
+  $\alpha = 1$, and the inequality becomes 
+  $(n-1)+1 \leq \frac{1}{|I|} \Rightarrow |I|n \leq 1 \Rightarrow |I|=0$. But this
+  is a contradiction since we know that on the first iteration of the algorithm 
+  at least one vertex is added to $|I|$. Therefore, the inequality does not hold. 
+ 
+
+\end{itemize}
+
 
 \newpage
 
