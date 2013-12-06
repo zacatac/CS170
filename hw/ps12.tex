@@ -395,7 +395,18 @@ in case $v \in S$). We then use algorithm 2.
     
     We begin with $A\equiv \emptyset$. On each iteration of the loop we satisfy 
     one of either the if, or the else if, clauses. For each of the clauses we
-    either put a vertex in $A$, or remove it from $A$. 
+    either put a vertex in $A$, or remove it from $A$. Since the function
+    $N(v,S)$, determines the number of neighbors of $v$ in $S$, the two 
+    calls $N(v,A)$ and $N(v,V-A)$ equivalently
+    calculate the number of edges incident to $v$. So each process of removing
+    or adding $v$ to $A$ will increase the output one of these calls by at least
+    one and decrease the output of the other by at least one. 
+    So for each of the iterations of the loop we are shifting the total count
+    of edges from one side of the indequalities (see inequality clauses lines 6 and 9)
+    to the other, by at least one. Since this inequality update process can occur at most 
+    $|E|$ times, there should be at most $|E|$ successful updates in either
+    the if, or else if clauses;  What of the $+1$?
+    
     On the last iteration, we will have satisfied neither condition and 
     the loop will end, this is where the $+1$ comes from. Hence, the entire 
     loop should run at most $|E|+1$ iterations. 
@@ -403,7 +414,17 @@ in case $v \in S$). We then use algorithm 2.
   \item[(c)] Show that if $A$ is the set output by algorithm 2, then the number 
     of edges crossing $(A,V-A)$ is at least $C/2$.
     
-    
+    Showing that there is a constantly increasing number of edges crossing $(A,V-A)$ 
+    with each iteration of the repeat-until loop will gurantee at least $C/2$ edges.
+    As in (a), we know that the upper bound of $C$ is $|E|$, so the minimum number
+    edges that we are looking to generate betwen $(A,V-A)$ is $|E|/2$.
+
+    We can assume that the repeat-until loop terminates when neither
+    clause (if, or else if) is satisfied. Which implies, $\forall v\in V:
+    N(v,A) = N(v,V-A)$. Since the sum $N(v,A) + N(v,V-A) = |E|$, the only 
+    way for $N(v,A) = N(v,V-A)$ is if $N(v,A) = N(v,V-A) = |E|/2$. This shows that
+    there are at least $|E|/2$ edges in the cut, and therefore the edges in the 
+    cut are at least $C/2$.
     
 \end{itemize}
 
