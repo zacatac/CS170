@@ -221,21 +221,69 @@ Stongly connected: path between any two points
 :: TREE EDGES $<=>$ CROSS EDGES depending on DFS
 
 Dijkstra's: Put all edges on a list and mark distance $\infty$, $O(|V|)$ time.
-
-\begin{Figure}
- \includegraphics[scale=0.08]{tree_edges}
-\end{Figure}
-
-\begin{Figure}
-    \includegraphics[scale=0.7]{BFS}
-\end{Figure}
-
-\begin{Figure}
- \includegraphics[scale=0.3]{convolution}
-\end{Figure}
-\rule{0.3\linewidth}{0.25pt}
+%
+%\begin{Figure}
+% \includegraphics[scale=0.08]{tree_edges}
+%\end{Figure}
+%
+%\begin{Figure}
+%    \includegraphics[scale=0.7]{BFS}
+%\end{Figure}
+%
+%\begin{Figure}
+% \includegraphics[scale=0.3]{convolution}
+%\end{Figure}
+%\rule{0.3\linewidth}{0.25pt}
 \scriptsize
 
+\newpage
+
+Kruskal's - greeedy - returns smallest edge not in cycle to be in MST
+
+\section*{DP}
+
+Find a substructure in the subproblems. Begin with the smallest
+subproblem and show how the solution to that problem will give you
+the "most", "least", "largest", "smallest", etc. and then give 
+a recurrence for the possible steps before it. MORE SIMPLE THAN YOU THINK!
+
+
+
+\section*{LP}
+
+LPs must maximize only one objective function.
+
+Dual and primal are equal then that is the optimum. Transpose everything
+to get dual. Simply add dummy variables to all of the original equations
+and summ the dummy variables in the objective. Simplex solves vertex
+linear programs, but it does not gurantee integer solutions.
+
+\includegraphics[scale=0.4]{max_flow.png}
+
+\includegraphics[scale=0.5]{duality.png}
+
+\includegraphics{qubit.png}
+
+
+\section*{Reduce NP, NP-complete}
+
+If you reduce A to B then you show how to solve A using B algorithm. Showing
+NP-complete: first show B is in NP. Then show that applying B algorithm to
+some other NP-complete problem will yield a solution. Make sure that the 
+input and output processing functions run in {\bf polynomial time}.
+
+A$\rightarrow$B is A in outer box of B. 
+
+NP completes
+SAT, 3SAT, Hamiltonian Path,
+
+\newpage 
+
+\includegraphics[scale=0.5]{zero_sum_1.png}
+
+\includegraphics{zero_sum_2.png}
+
+\includegraphics[scale=0.5]{zero_sum_3.png}
 
 
 2013 Zack Field
